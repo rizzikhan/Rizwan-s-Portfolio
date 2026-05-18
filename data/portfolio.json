@@ -1,170 +1,371 @@
 {
   "personalInfo": {
-    "name": "Ali Burhan",
+    "name": "Faizan Ahmed",
     "role": "Full Stack Developer",
-    "description": "Full Stack Developer with 2+ years of experience building scalable cloud applications, AI-powered solutions, and microservices platforms using JavaScript (React, Next.js, Node.js), Python, and AWS cloud services. Specialized in serverless architectures (AWS Lambda, API Gateway, CloudFront), LLM integration (LangChain, RAG), and Infrastructure as Code with Terraform.",
+    "description": "Full Stack Developer with 4+ years of experience in JavaScript (React, Next.js, Node.js), Python, and cloud services (AWS, Azure). Specialized in microservices, real-time data pipelines, and infrastructure automation with Terraform. Strong communicator and team player with proven success delivering scalable, secure, and high-performance systems.",
     "availability": "Available for new projects",
     "location": "Lahore, Pakistan",
-    "phone": "+92 300 1499488",
-    "email": "aliburhan.dev.ai@gmail.com",
-    "portfolio": "https://aliburhan.vercel.app"
+    "phone": "+92-306-6764052",
+    "email": "raofaizan09@gmail.com",
+    "portfolio": ""
   },
   "socialLinks": {
-    "github": "https://github.com/Ali-Burhan",
-    "linkedin": "https://linkedin.com/in/ali-burhan-9076b42b6/",
-    "portfolio": "https://aliburhan.vercel.app"
+    "github": "https://github.com/faizanahmed09",
+    "linkedin": "https://www.linkedin.com/in/faizan-ahmed09/",
+    "portfolio": ""
   },
   "skills": {
-    "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Zustand", "React DnD", "JavaScript", "HTML/CSS"],
-    "backend": ["Node.js", "Express.js", "NestJS", "Python", "FastAPI", "RESTful APIs", "WebSockets", "GraphQL"],
-    "database": ["PostgreSQL", "MongoDB", "Redis", "SQL Server", "SQL"],
+    "frontend": [
+      "React",
+      "Next.js",
+      "Bootstrap",
+      "HTML5/CSS3",
+      "JavaScript",
+      "TypeScript",
+      "Zustand",
+      "React Query"
+    ],
+    "backend": [
+      "Supabase",
+      "Node.js",
+      "NestJS",
+      "Express",
+      "Python",
+      "FastAPI",
+      "RESTful APIs",
+      "Microservices",
+      "GraphQL"
+    ],
+    "database": [
+      "MySQL",
+      "PostgreSQL",
+      "Sequelize",
+      "Redis",
+      "MongoDB",
+      "SQL Server",
+      "AWS RDS",
+      "DynamoDB"
+    ],
     "cloudDevOps": [
+      "AWS S3",
       "AWS Lambda",
       "AWS API Gateway",
-      "AWS S3",
+      "AWS Route53",
       "AWS CloudFront",
+      "AWS CloudWatch",
       "AWS EC2",
       "AWS RDS",
-      "AWS SQS",
+      "AWS DynamoDB",
       "AWS Kinesis",
-      "AWS Lightsail",
-      "Terraform",
-      "Docker",
-      "Serverless Framework",
-      "GitHub Actions",
+      "AWS SQS",
+      "AWS LightSail",
+      "Azure",
       "Jenkins",
-      "CI/CD"
+      "Docker",
+      "Microservices",
+      "Terraform"
+    ],
+    "integration": [
+      "Stripe",
+      "Deepgram API",
+      "OpenSmile",
+      "DeepL API",
+      "ElevenLabs API",
+      "Microsoft Authenticator",
+      "OAuth",
+      "Google OAuth",
+      "Microsoft OAuth"
     ],
     "aiMl": [
-      "LangChain",
-      "OpenAI API",
-      "RAG",
-      "Prompt Engineering",
-      "Vector Embeddings",
-      "LLMs"
+      "OpenSmile",
+      "Deepgram API",
+      "DeepL API",
+      "ElevenLabs API"
     ],
-    "testing": ["Jest", "Python unittest", "Pytest"],
-    "tools": ["VS Code", "Cursor", "Windsurf", "LazyGit", "Git", "JIRA"],
-    "methodologies": ["Agile", "Scrum", "Sprint Planning", "Retrospectives", "Story Point Estimation", "Cross-functional Collaboration"],
-    "languages": ["JavaScript", "TypeScript", "Python", "SQL"]
+    "testing": [
+      "Jest",
+      "Python Unit Testing",
+      "Testing/QA"
+    ],
+    "tools": [
+      "AWS",
+      "Azure",
+      "Terraform",
+      "Jest",
+      "Heroku"
+    ],
+    "languages": [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "SQL"
+    ],
+    "methodologies": [
+      "Microservices",
+      "Real-time Data Pipelines",
+      "Infrastructure Automation",
+      "RESTful APIs",
+      "Micro-frontends"
+    ]
   },
   "experience": [
     {
-      "position": "Software Engineer",
+      "position": "Senior Software Engineer",
       "company": "Hashlogics",
       "location": "Lahore, Pakistan",
-      "duration": "Oct 2024 – Present",
+      "duration": "Sep 2022 - Present",
       "projects": [
         {
           "name": "Forwood Safety",
-          "duration": "Oct 2024 – Present",
+          "duration": "Sep 2022 - Present",
           "url": "https://forwoodsafety.com",
-          "description": "Built and maintained a microservices safety platform deployed across 1,000+ sites globally using Python serverless architecture, reducing infrastructure costs by 30%.",
+          "description": "Designed and delivered a microservices architecture using Python and React, supporting scalable web applications.",
           "achievements": [
-            "Built microservices safety platform using Python serverless architecture (AWS Lambda, API Gateway, SQS, Kinesis) deployed across 1,000+ sites globally, reducing infrastructure costs by 30%",
-            "Spearheaded backend architecture for Safety+ mobile app and automated infrastructure with Terraform, cutting deployment time from 2 hours to 15 minutes across dev, staging, and production environments",
-            "Implemented E2E testing suite using Pytest, automating user login flows, API endpoint validation, and regression checks, reducing post-release defects by 25%",
-            "Served as Release Manager coordinating quarterly releases and hotfixes via Jira and Jenkins pipelines, maintaining 99.9% platform uptime with zero-downtime deployments"
+            "Designed and delivered a microservices architecture using Python and React, supporting scalable web applications",
+            "Automated infrastructure with Terraform to deploy AWS Lambda, API Gateway, and CloudWatch, streamlining operations",
+            "Configured Route53 and CloudFront for optimized DNS and content delivery, enhancing global performance",
+            "Managed data with AWS RDS and DynamoDB for high availability and scalability",
+            "Developed caching with S3 to minimize latency and speed up data access",
+            "Implemented Kinesis streams for real-time microservices data processing, increasing system responsiveness",
+            "Established a shared Lambda repository to centralize reusable code, boosting maintainability",
+            "Orchestrated batch workflows with SQS using custom dispatcher and consumer Lambdas",
+            "Led a micro-frontend strategy with React, enabling independent deployment and scaling of UI modules",
+            "Engineered Jest test suites for React components and Python unit tests, ensuring robust microservices reliability"
           ],
-          "technologies": ["Python", "React", "Terraform", "AWS", "Jest", "Pytest"]
+          "technologies": [
+            "Python",
+            "React",
+            "Terraform",
+            "AWS",
+            "Jest"
+          ]
         },
         {
-          "name": "Lumaya",
-          "duration": "Nov 2024 – Mar 2025",
-          "url": "https://lumaya.ch",
-          "description": "Architected and delivered a full-stack business marketplace as sole developer in 4 months, 50+ listings worth $10M+ total value, from requirements through production.",
+          "name": "LexPair",
+          "duration": "Sep 2022 - Present",
+          "url": "https://www.lexpair.com/",
+          "description": "Built a legal matching platform that collects client case details and attorney practice, territory, and tier data, auto-assigning leads based on profile and subscription.",
           "achievements": [
-            "Architected and delivered full-stack business marketplace (lumaya.ch) as sole developer in 4 months, 50+ listings worth $10M+ total value, from requirements through production",
-            "Integrated Veriff KYC for identity verification (100+ verifications, 95% success rate) and real-time WebSocket chat with file attachments and read receipts",
-            "Deployed on AWS Lightsail managing PostgreSQL optimization, SSL, and production environment with 99.8% uptime"
+            "Built a legal matching platform that collects client case details and attorney practice, territory, and tier data, auto-assigning leads based on profile and subscription",
+            "Implemented multi-role authentication for Client, Attorney, and Admin users with OTP verification, Google and Microsoft OAuth, role-based routing, and protected dashboards",
+            "Managed full lead lifecycle from Draft to Submitted to Claimed to Contacted to Retained or Closed with tier-based visibility for Gold, Silver, and Bronze plans",
+            "Developed attorney onboarding, lead management, and admin CMS modules for blogs, FAQs, case studies, and testimonials"
           ],
-          "technologies": ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "AWS Lightsail", "WebSockets", "Veriff KYC"]
+          "technologies": [
+            "React",
+            "TypeScript",
+            "Supabase",
+            "Stripe"
+          ]
+        },
+        {
+          "name": "Emotion-Aware Multilingual Voice Processing System",
+          "duration": "Sep 2022 - Present",
+          "url": "https://fe-ai-text-and-speech.vercel.app/",
+          "description": "Designed and developed an end-to-end voice processing system that records audio, detects emotional tone, converts speech to text, translates content, and generates emotionally adaptive text-to-speech output.",
+          "achievements": [
+            "Designed and developed an end-to-end voice processing system that records audio, detects emotional tone, converts speech to text, translates content between English and Spanish, and generates emotionally adaptive text-to-speech output",
+            "Built a multi-stage pipeline integrating Deepgram API for speech-to-text transcription and automatic language detection",
+            "Utilized OpenSmile to detect emotional characteristics from audio input",
+            "Implemented DeepL API for accurate bidirectional translation between English and Spanish",
+            "Integrated ElevenLabs API to generate emotion-preserving text-to-speech output with mapped voice parameters",
+            "Developed RESTful APIs to orchestrate service communication with structured error handling and fault tolerance"
+          ],
+          "technologies": [
+            "FastAPI",
+            "Next.js",
+            "Deepgram API",
+            "OpenSmile",
+            "DeepL API",
+            "ElevenLabs API"
+          ]
+        },
+        {
+          "name": "Authenpush",
+          "duration": "Sep 2022 - Present",
+          "url": "https://www.authenpush.com/",
+          "description": "Built a secure identity verification platform using Next.js and Supabase, enabling seamless integration with Microsoft Authenticator for improved user authentication.",
+          "achievements": [
+            "Built a secure identity verification platform using Next.js and Supabase, enabling seamless integration with Microsoft Authenticator for improved user authentication",
+            "Designed and implemented RESTful APIs to support communication between frontend applications, Azure cloud services, and identity workflows",
+            "Managed real-time database operations and authentication via Supabase, maintaining data integrity and compliance",
+            "Deployed scalable infrastructure on Azure and developed responsive UI components for consistent cross-device experiences"
+          ],
+          "technologies": [
+            "Next.js",
+            "Supabase",
+            "Microsoft Azure"
+          ]
+        },
+        {
+          "name": "Oxit",
+          "duration": "Sep 2022 - Present",
+          "url": "https://oxit.com/",
+          "description": "Developed backend APIs for an IoT solution using Node.js, enhancing connectivity between devices and the cloud.",
+          "achievements": [
+            "Developed backend APIs for an IoT solution using Node.js, enhancing connectivity between devices and the cloud",
+            "Integrated IoT protocols including MQTT and WebSockets to boost reliability and real-time interactions",
+            "Collaborated with frontend and DevOps teams to ensure backend scalability and security",
+            "Delivered a robust IoT platform that supported project success"
+          ],
+          "technologies": [
+            "Node.js",
+            "PostgreSQL",
+            "MQTT",
+            "WebSockets"
+          ]
         }
       ]
     },
     {
-      "position": "Associate Software Engineer",
-      "company": "Techling",
-      "location": "Sheikhupura, Pakistan",
-      "duration": "May 2024 – Oct 2024",
+      "position": "Software Engineer",
+      "company": "Mercury Sols",
+      "location": "Rahim Yar Khan, Pakistan",
+      "duration": "Apr 2020 - Aug 2021",
       "projects": [
         {
-          "name": "CazVid",
-          "duration": "May 2024 – Oct 2024",
-          "url": "https://cazvid.com",
-          "description": "Built 25+ frontend components for an AI-driven job board serving 150+ languages globally, integrating 20+ RESTful APIs with NestJS/MongoDB backend.",
+          "name": "Med Opinion",
+          "duration": "Apr 2020 - Aug 2021",
+          "url": "https://med-opinion-frontend.herokuapp.com/",
+          "description": "Developed a complete medical consultation backend using NestJS with robust authentication.",
           "achievements": [
-            "Built 25+ frontend components for AI-driven job board serving 150+ languages globally, integrating 20+ RESTful APIs with NestJS/MongoDB backend for real-time AI resume screening and automated job matching",
-            "Developed Kanban recruiter dashboard with React DnD managing 500+ postings and optimized performance by 40% via code splitting and lazy loading, improving Core Web Vitals"
+            "Developed a complete medical consultation backend using NestJS with robust authentication",
+            "Integrated APIs to connect the React.js frontend for seamless user interactions",
+            "Deployed the platform on Heroku"
           ],
-          "technologies": ["Next.js", "Zustand", "NestJS", "MongoDB", "React DnD"]
+          "technologies": [
+            "NestJS",
+            "React.js"
+          ]
+        },
+        {
+          "name": "Galae Health",
+          "duration": "Apr 2020 - Aug 2021",
+          "url": "https://galeahealth.com/",
+          "description": "Built profile pages and implemented filtering for service providers by location, price, and specialization.",
+          "achievements": [
+            "Built profile pages and implemented filtering for service providers by location, price, and specialization",
+            "Connected the React.js frontend with APIs to deliver real-time health data updates"
+          ],
+          "technologies": [
+            "React.js"
+          ]
+        },
+        {
+          "name": "IFancy",
+          "duration": "Apr 2020 - Aug 2021",
+          "description": "Developed backend APIs for an e-commerce platform focused on watches using Express.js.",
+          "achievements": [
+            "Developed backend APIs for an e-commerce platform focused on watches using Express.js",
+            "Coordinated with frontend teams for smooth integration"
+          ],
+          "technologies": [
+            "Express.js",
+            "React.js"
+          ]
+        },
+        {
+          "name": "Trade4U",
+          "duration": "Apr 2020 - Aug 2021",
+          "url": "https://www.trade4u.io/",
+          "description": "Designed intuitive frontend pages for a crypto trading platform.",
+          "achievements": [
+            "Designed intuitive frontend pages for a crypto trading platform",
+            "Integrated APIs for live data and user interaction"
+          ],
+          "technologies": [
+            "React.js"
+          ]
         }
       ]
     }
   ],
   "certificates": [
     {
-      "name": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services (AWS)",
-      "issueDate": "2024",
-      "skills": ["AWS Cloud", "Cloud Computing", "Infrastructure", "Security"]
+      "name": "AMAL - Career-Prep Fellowship",
+      "issuer": "Amal Academy (Stanford-funded)",
+      "issueDate": "2021",
+      "skills": [
+        "Communication",
+        "Leadership",
+        "Problem-Solving",
+        "Teamwork"
+      ]
     },
     {
-      "name": "Python Essentials 1",
-      "issuer": "Cisco",
-      "issueDate": "2024",
-      "skills": ["Python", "Programming Basics", "Data Types", "Control Flow"]
+      "name": "Web Development + Freelancing",
+      "issuer": "E-Rozgar Program",
+      "issueDate": "2020",
+      "skills": [
+        "Web Development",
+        "Freelancing"
+      ]
     },
     {
-      "name": "Python Essentials 2",
-      "issuer": "Cisco",
-      "issueDate": "2024",
-      "skills": ["Python", "OOP", "Advanced Programming", "Algorithms"]
+      "name": "Cisco Certified Networking Associate (CCNA)",
+      "issuer": "Corvit Systems",
+      "issueDate": "2018",
+      "skills": [
+        "Networking",
+        "Cisco",
+        "CCNA"
+      ]
     }
   ],
-  "freelanceProjects": [
+  "freelanceProjects": [],
+  "awards": [
     {
-      "name": "Emotion-Aware Multilingual Voice Processing System",
-      "url": "https://fe-ai-text-and-speech.vercel.app/",
-      "description": "Designed an end-to-end voice processing pipeline that records audio, detects emotional tone, performs Speech-to-Text, translates bidirectionally (EN ↔ ES), and generates emotion-preserving TTS output.",
-      "achievements": [
-        "Designed end-to-end voice processing pipeline recording audio, detecting emotional tone via OpenSmile, Speech-to-Text with Deepgram, bidirectional translation (EN ↔ ES) via DeepL, and emotion-preserving TTS using ElevenLabs API",
-        "Built RESTful APIs with FastAPI orchestrating all service communication with structured error handling and fault tolerance across the full pipeline"
-      ],
-      "technologies": ["FastAPI", "Next.js", "Deepgram API", "OpenSmile", "DeepL API", "ElevenLabs API"]
+      "title": "Volunteering Social Enthusiast Award",
+      "organization": "Hashlogics",
+      "year": "2022",
+      "description": "Recognized for leadership in organizing and managing social activities, including overseeing events such as monthly dinners, sports activities, and daily operational tasks as the head of the social committee."
     },
     {
-      "name": "TeachTrack AI",
-      "description": "Built an AI-powered educational platform automating test creation and grading for 500+ monthly assessments across 3 schools, serving 1,200+ students and 45+ teachers.",
-      "achievements": [
-        "Built AI-powered educational platform automating test creation and grading for 500+ monthly assessments across 3 schools, serving 1,200+ students and 45+ teachers",
-        "Engineered GPT-4 test generator with custom prompt templates reducing teacher prep time by 70%, and automated grader achieving 92% accuracy vs. manual grading",
-        "Integrated LangChain RAG with vector embeddings for curriculum-based question generation from 1,000+ pages of educational materials"
-      ],
-      "technologies": ["Python", "LangChain", "OpenAI API", "Next.js", "RAG", "Vector Embeddings"]
+      "title": "2 x Employee of the Month",
+      "organization": "Hashlogics",
+      "year": "January, July",
+      "description": ""
+    },
+    {
+      "title": "Circle of Excellence",
+      "organization": "Mercury Sols",
+      "year": "2021",
+      "description": ""
+    },
+    {
+      "title": "Web Development + Freelancing",
+      "organization": "E-Rozgar Program",
+      "year": "2020",
+      "description": ""
+    },
+    {
+      "title": "Cisco Certified Networking Associate (CCNA)",
+      "organization": "Corvit Systems",
+      "year": "2018",
+      "description": ""
     }
   ],
   "education": [
     {
-      "degree": "Master of Computer Science",
-      "institution": "University of Engineering and Technology (UET)",
-      "location": "Lahore",
-      "focus": "ML, Cloud Computing, Distributed Systems",
-      "duration": "2025 – 2027",
-      "status": "In Progress"
+      "degree": "Bachelor of Computer Science",
+      "institution": "KFUEIT",
+      "location": "Rahim Yar Khan, Pakistan",
+      "duration": "",
+      "status": "Graduated: 2020"
     },
     {
-      "degree": "Bachelor of Computer Science",
-      "institution": "NFC Institute of Engineering and Fertilizer Research",
-      "location": "Faisalabad",
-      "duration": "Sep 2020 – Oct 2024",
-      "status": "Completed"
+      "degree": "AMAL - Career-Prep Fellowship",
+      "institution": "Amal Academy (Stanford-funded)",
+      "location": "Lahore, Pakistan",
+      "duration": "2021",
+      "status": "Completed",
+      "details": "Dedicated 150 hours to developing key professional skills in communication, leadership, problem-solving, and teamwork."
     }
   ],
   "highlights": {
-    "yearsExperience": "2+",
-    "projectsCompleted": "6+",
+    "yearsExperience": "4+",
+    "projectsCompleted": "9+",
     "technologies": "30+",
-    "sites": "1000+"
+    "sites": "5+"
   }
 }

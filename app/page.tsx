@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Desktop } from "@/components/os";
+import { ClientOnly } from "@/components/client-only";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aliburhan.com"),
@@ -163,7 +164,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <Desktop />
+      <ClientOnly>
+        <Desktop />
+      </ClientOnly>
     </>
   );
 }

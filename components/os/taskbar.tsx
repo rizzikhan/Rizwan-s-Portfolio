@@ -11,6 +11,13 @@ interface NewsItem {
   author: string;
 }
 
+interface HackerNewsHit {
+  title: string | null;
+  url: string | null;
+  author: string;
+  objectID: string;
+}
+
 interface WeatherData {
   temp: number;
   condition: string;
@@ -26,6 +33,7 @@ interface TaskbarProps {
   setBrightness: (v: number) => void;
   nightLight: boolean;
   setNightLight: (v: boolean) => void;
+  highlightStartButton?: boolean;
 }
 
 export const Taskbar = memo(function Taskbar({
@@ -37,7 +45,8 @@ export const Taskbar = memo(function Taskbar({
   brightness,
   setBrightness,
   nightLight,
-  setNightLight
+  setNightLight,
+  highlightStartButton = false
 }: TaskbarProps) {
   const [time, setTime] = useState<string>("");
   const [date, setDate] = useState<string>("");
@@ -81,13 +90,16 @@ export const Taskbar = memo(function Taskbar({
     const fetchWeather = async () => {
       try {
         const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=31.5204&longitude=74.3587&current_weather=true");
+        if (!res.ok) {
+          throw new Error(`Weather request failed with ${res.status}`);
+        }
         const data = await res.json();
         setWeather({ 
           temp: Math.round(data.current_weather.temperature), 
           condition: data.current_weather.weathercode <= 3 ? "Clear" : "Cloudy" 
         });
-      } catch (e) {
-        console.error("Weather fetch failed", e);
+      } catch {
+        setWeather({ temp: 28, condition: "Unavailable" });
       } finally {
         setIsLoading(prev => ({ ...prev, weather: false }));
       }
@@ -96,14 +108,26 @@ export const Taskbar = memo(function Taskbar({
     const fetchNews = async () => {
       try {
         const res = await fetch("https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=5");
+        if (!res.ok) {
+          throw new Error(`News request failed with ${res.status}`);
+        }
         const data = await res.json();
-        setNews(data.hits.map((hit: any) => ({
-          title: hit.title,
+        const hits = Array.isArray(data.hits) ? data.hits as HackerNewsHit[] : [];
+        setNews(hits
+          .filter((hit) => Boolean(hit.title))
+          .map((hit) => ({
+          title: hit.title as string,
           url: hit.url || `https://news.ycombinator.com/item?id=${hit.objectID}`,
           author: hit.author
         })));
-      } catch (e) {
-        console.error("News fetch failed", e);
+      } catch {
+        setNews([
+          {
+            title: "Latest developer headlines are temporarily unavailable.",
+            url: "https://news.ycombinator.com/",
+            author: "System",
+          },
+        ]);
       } finally {
         setIsLoading(prev => ({ ...prev, news: false }));
       }
@@ -184,10 +208,32 @@ export const Taskbar = memo(function Taskbar({
         {/* Center Section - Taskbar Icons */}
         <div className="flex-none flex items-center gap-1 px-2">
           {/* Start Button */}
-          <button
+          <motion.button
             onClick={onStartClick}
-            className="w-10 h-10 rounded-md flex items-center justify-center hover:bg-foreground/10 hover-scale-108 active-scale-92 transition-all duration-120"
+            className={`relative w-10 h-10 rounded-md flex items-center justify-center hover:bg-foreground/10 hover-scale-108 active-scale-92 transition-all duration-120 ${
+              highlightStartButton ? "bg-foreground/5" : ""
+            }`}
             title="Start"
+            animate={highlightStartButton ? {
+              y: [0, -2, 0],
+              scale: [1, 1.04, 1],
+              boxShadow: [
+                "0 0 0 rgba(56, 189, 248, 0)",
+                "0 8px 24px rgba(56, 189, 248, 0.2)",
+                "0 0 0 rgba(56, 189, 248, 0)"
+              ]
+            } : {
+              y: 0,
+              scale: 1,
+              boxShadow: "0 0 0 rgba(56, 189, 248, 0)"
+            }}
+            transition={highlightStartButton ? {
+              duration: 2.2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            } : {
+              duration: 0.2
+            }}
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <defs>
@@ -201,7 +247,26 @@ export const Taskbar = memo(function Taskbar({
               <rect x="3" y="13" width="8" height="8" rx="1" fill="url(#windowsGrad)" />
               <rect x="13" y="13" width="8" height="8" rx="1" fill="url(#windowsGrad)" />
             </svg>
-          </button>
+            {highlightStartButton && (
+              <>
+                <motion.span
+                  className="absolute inset-0 rounded-md bg-sky-400/10"
+                  animate={{ opacity: [0.08, 0.22, 0.08] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.span
+                  className="absolute inset-1 rounded-md border border-sky-400/40"
+                  animate={{ opacity: [0.35, 0.85, 0.35] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.span
+                  className="absolute -top-3 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rotate-45 border-r border-b border-sky-400/40 bg-sky-400/10"
+                  animate={{ opacity: [0.2, 0.8, 0.2], y: [0, -3, 0], scale: [0.9, 1, 0.9] }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </>
+            )}
+          </motion.button>
 
           {/* Search Button - Desktop only */}
           <button
@@ -290,19 +355,19 @@ export const Taskbar = memo(function Taskbar({
             initial={{ opacity: 0, x: -20, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -20, scale: 0.95 }}
-            className="fixed bottom-14 left-2 w-[380px] md:w-[420px] max-h-[calc(100vh-80px)] h-[650px] bg-os-window border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col transition-colors duration-300"
+            className="fixed bottom-14 left-2 right-2 md:left-2 md:right-auto md:w-[420px] max-h-[calc(100vh-80px)] h-[500px] md:h-[650px] bg-os-window border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col transition-colors duration-300"
           >
             {/* Widget Header */}
-            <div className="p-4 flex items-center justify-between gap-4">
+            <div className="p-3 md:p-4 flex items-center justify-between gap-2 md:gap-4">
               <div className="flex-1 relative group">
-                <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-os-text-secondary opacity-50 group-focus-within:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                <input 
-                  type="text" 
-                  placeholder="Search web or news" 
-                  className="w-full bg-foreground/5 border-none rounded-lg py-2 pl-9 pr-4 text-xs text-os-text-primary focus:ring-1 focus:ring-accent outline-none transition-all"
+                <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 md:w-4 md:h-4 text-os-text-secondary opacity-50 group-focus-within:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                <input
+                  type="text"
+                  placeholder="Search web or news"
+                  className="w-full bg-foreground/5 border-none rounded-lg py-2 pl-8 md:pl-9 pr-3 md:pr-4 text-[10px] md:text-xs text-os-text-primary focus:ring-1 focus:ring-accent outline-none transition-all"
                 />
               </div>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-[10px] font-bold text-white shadow-lg uppercase">
+              <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-[9px] md:text-[10px] font-bold text-white shadow-lg uppercase">
                 {portfolioData.personalInfo.name.split(' ').map(n => n[0]).join('')}
               </div>
             </div>
@@ -412,7 +477,7 @@ export const Taskbar = memo(function Taskbar({
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="fixed bottom-14 right-2 w-80 bg-os-popover-bg border border-black/10 dark:border-white/10 rounded-2xl p-4 shadow-2xl z-50 text-os-text-primary transition-colors duration-300"
+            className="fixed bottom-14 right-2 left-2 md:left-auto md:w-80 bg-os-popover-bg border border-black/10 dark:border-white/10 rounded-2xl p-3 md:p-4 shadow-2xl z-50 text-os-text-primary transition-colors duration-300"
           >
             <div className="flex flex-col gap-4">
               {activeSubMenu ? (
@@ -517,38 +582,38 @@ export const Taskbar = memo(function Taskbar({
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="fixed bottom-14 right-2 w-80 bg-os-popover-bg border border-black/10 dark:border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden transition-colors duration-300"
+            className="fixed bottom-14 right-2 left-2 md:left-auto md:w-80 bg-os-popover-bg border border-black/10 dark:border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden transition-colors duration-300"
           >
-            <div className="p-4 border-b border-black/5 dark:border-white/5">
-              <div className="flex items-center justify-between text-os-text-primary font-medium">
+            <div className="p-3 md:p-4 border-b border-black/5 dark:border-white/5">
+              <div className="flex items-center justify-between text-os-text-primary font-medium text-sm md:text-base">
                 <span>{viewDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
-                <div className="flex gap-2 text-os-text-primary">
-                  <button 
+                <div className="flex gap-1 md:gap-2 text-os-text-primary">
+                  <button
                     onClick={handlePrevMonth}
-                    className="p-1 hover:bg-foreground/10 rounded transition-colors"
+                    className="p-1.5 md:p-1 hover:bg-foreground/10 rounded transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </button>
-                  <button 
+                  <button
                     onClick={handleNextMonth}
-                    className="p-1 hover:bg-foreground/10 rounded transition-colors"
+                    className="p-1.5 md:p-1 hover:bg-foreground/10 rounded transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </button>
                 </div>
               </div>
             </div>
-            <div className="p-4 grid grid-cols-7 gap-1 text-center text-os-text-primary">
+            <div className="p-3 md:p-4 grid grid-cols-7 gap-0.5 md:gap-1 text-center text-os-text-primary">
               {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
-                <span key={day} className="text-[10px] font-bold opacity-40 uppercase mb-2">{day}</span>
+                <span key={day} className="text-[9px] md:text-[10px] font-bold opacity-40 uppercase mb-1 md:mb-2">{day}</span>
               ))}
               {offsetDays.map(i => (
                 <div key={`offset-${i}`} className="aspect-square" />
               ))}
               {calendarDays.map(day => (
-                <button 
-                  key={day} 
-                  className={`aspect-square flex items-center justify-center text-xs rounded-full transition-colors ${isCurrentMonth && day === new Date().getDate() ? 'bg-[#38bdf8] text-white font-bold' : 'hover:bg-foreground/10'}`}
+                <button
+                  key={day}
+                  className={`aspect-square flex items-center justify-center text-[10px] md:text-xs rounded-full transition-colors ${isCurrentMonth && day === new Date().getDate() ? 'bg-[#38bdf8] text-white font-bold' : 'hover:bg-foreground/10'}`}
                 >
                   {day}
                 </button>

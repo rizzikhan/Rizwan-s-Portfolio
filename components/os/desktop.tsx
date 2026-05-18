@@ -1,16 +1,25 @@
 "use client";
 import React, { useState, useCallback, useEffect, lazy, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Taskbar } from "./taskbar";
 import { DesktopIcon } from "./desktop-icon";
 import { Window } from "./window";
 import portfolioData from "@/data/portfolio.json";
+
+import dynamic from "next/dynamic";
 
 // Lazy load window content for better performance
 const AboutContent = lazy(() => import("./windows/about-content").then(m => ({ default: m.AboutContent })));
 const ProjectsContent = lazy(() => import("./windows/projects-content").then(m => ({ default: m.ProjectsContent })));
 const ExperienceContent = lazy(() => import("./windows/experience-content").then(m => ({ default: m.ExperienceContent })));
 const ContactContent = lazy(() => import("./windows/contact-content").then(m => ({ default: m.ContactContent })));
+
+// Dynamic import with SSR disabled for 3D canvas
+const ComputersCanvas = dynamic(() => import("@/components/canvas").then(m => ({ default: m.ComputersCanvas })), {
+  ssr: false,
+  loading: () => null,
+});
 
 export type WindowId = "about" | "projects" | "experience" | "contact";
 
@@ -33,27 +42,28 @@ const QUICK_LINKS = [
 ];
 
 export function Desktop() {
-  const { personalInfo, socialLinks, highlights } = portfolioData;
+  const { personalInfo, highlights } = portfolioData;
+  const heroTechStack = ["React | Next.js", "Node.js | Python", "AWS | Azure", "AI", "Terraform", "Docker"];
   const [windows, setWindows] = useState<WindowState[]>([]);
   const [activeWindow, setActiveWindow] = useState<WindowId | null>(null);
-  const [highestZ, setHighestZ] = useState(10);
+  const [highestZ, setHighestZ] = useState(45);
   const [showStartMenu, setShowStartMenu] = useState(false);
   const searchInputRef = React.useRef<HTMLInputElement>(null);
   const [brightness, setBrightness] = useState(100);
   const [nightLight, setNightLight] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [currentTime, setCurrentTime] = useState("");
   const [reduceMotion, setReduceMotion] = useState(false);
 
   // Check for mobile and prefers-reduced-motion
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
+    // Defer initial state updates to avoid warnings
+    setTimeout(checkMobile, 0);
     window.addEventListener("resize", checkMobile);
 
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduceMotion(mediaQuery.matches);
+    setTimeout(() => setReduceMotion(mediaQuery.matches), 0);
 
     const handleMotionChange = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
     mediaQuery.addEventListener("change", handleMotionChange);
@@ -62,21 +72,6 @@ export function Desktop() {
       window.removeEventListener("resize", checkMobile);
       mediaQuery.removeEventListener("change", handleMotionChange);
     };
-  }, []);
-
-  // Update time
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setCurrentTime(now.toLocaleDateString("en-US", {
-        weekday: "long",
-        month: "long",
-        day: "numeric",
-      }));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 60000);
-    return () => clearInterval(interval);
   }, []);
 
   const openWindow = useCallback((id: WindowId) => {
@@ -172,6 +167,7 @@ export function Desktop() {
 
   // Handle external window triggers (e.g., from Navbar search)
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleOpenWindow = (event: any) => {
       if (event.detail?.windowId) {
         openWindow(event.detail.windowId);
@@ -183,6 +179,14 @@ export function Desktop() {
     return () => window.removeEventListener("open-os-window", handleOpenWindow);
   }, [openWindow]);
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<{ id: WindowId; label: string; icon: string; keywords: string[] }[]>([]);
+  const heroStats = [
+    { label: "Core Skills", value: "Full Stack" },
+    { label: "Experience", value: highlights.yearsExperience || "3+" },
+    { label: "Projects", value: highlights.projectsCompleted || "10+" },
+  ];
+
   // Focus search input when start menu opens
   useEffect(() => {
     if (showStartMenu) {
@@ -190,15 +194,14 @@ export function Desktop() {
         searchInputRef.current?.focus();
       }, 100);
     } else {
-      setSearchQuery("");
-      setSearchResults([]);
+      setTimeout(() => {
+        setSearchQuery("");
+        setSearchResults([]);
+      }, 0);
     }
   }, [showStartMenu]);
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<{ id: WindowId; label: string; icon: string; keywords: string[] }[]>([]);
-
-  const handleSearch = (query: string) => {
+  const handleSearch = (query: string): void => {
     setSearchQuery(query);
     if (!query.trim()) {
       setSearchResults([]);
@@ -232,10 +235,10 @@ export function Desktop() {
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 overflow-hidden select-none transition-all duration-500"
       style={{
-        filter: `brightness(${brightness}%) ${nightLight ? 'sepia(30%) saturate(120%) hue-rotate(-15deg)' : ''}`
+        filter: `brightness(${brightness}%) ${nightLight ? 'sepia(30%) saturate(120%) hue-rotate(-15deg)' : 'sepia(30%) saturate(120%) hue-rotate(0deg)' }`
       }}
     >
       {/* Professional Mesh Gradient Background - Optimized */}
@@ -245,28 +248,36 @@ export function Desktop() {
 
         {/* Optimized Animated Blooms - Reduced from 3 to 2, simplified animations */}
         <motion.div
+          initial={false}
           animate={reduceMotion ? {} : {
             scale: [1, 1.15, 1],
           }}
           transition={reduceMotion ? {} : { duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/4 -left-1/4 w-full h-full rounded-full bg-[#38bdf8]/15 blur-[120px]"
-          style={{ willChange: reduceMotion ? 'auto' : 'transform' }}
+          className="absolute -top-1/4 -left-1/4 w-full h-full rounded-full bg-[#38bdf8]/15 blur-[120px] z-0"
         />
         <motion.div
+          initial={false}
           animate={reduceMotion ? {} : {
             scale: [1, 1.1, 1],
           }}
           transition={reduceMotion ? {} : { duration: 35, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-1/4 -right-1/4 w-full h-full rounded-full bg-[#818cf8]/12 blur-[100px]"
-          style={{ willChange: reduceMotion ? 'auto' : 'transform' }}
+          className="absolute -bottom-1/4 -right-1/4 w-full h-full rounded-full bg-[#818cf8]/12 blur-[100px] z-0"
         />
 
-        {/* Glass Overlay */}
-        <div className="absolute inset-0 bg-background/5 backdrop-blur-[1px]" />
+        {/* Glass Overlay - with pointer-events-none to allow interaction with canvas */}
+        <div className="absolute inset-0 z-10 bg-background/2 pointer-events-none" />
       </div>
 
-      {/* Desktop Icons - Responsive grid */}
-      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-10">
+      {/* 3D Computer Canvas - moved outside for proper z-index */}
+      {!isMobile && (
+        <ComputersCanvas
+          reduceMotion={reduceMotion}
+          isVisible={windows.length === 0}
+        />
+      )}
+
+      {/* Desktop Icons - Hidden on mobile, shown on desktop */}
+      <div className="hidden md:block absolute top-4 left-4 md:top-6 md:left-6 z-40">
         <div className="grid grid-cols-2 md:grid-cols-1 gap-1 md:gap-2">
           {DESKTOP_ICONS.map((item) => (
             <DesktopIcon
@@ -288,105 +299,157 @@ export function Desktop() {
         </div>
       </div>
 
-      {/* Center Welcome Widget - Windows 11 style */}
+      {/* Identity Block - Centered */}
       {windows.length === 0 && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none pb-16">
+        <div style={{ position: 'fixed', inset: 0, display: 'flex', alignItems: isMobile ? 'flex-start' : 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 20, padding: isMobile ? '3.75rem 1.5rem 6.5rem' : '0 1.5rem', paddingBottom: isMobile ? '6.5rem' : '54vh' }}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-center space-y-4 md:space-y-6 px-4"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: isMobile ? '1.25rem' : '0rem', width: '100%', maxWidth: isMobile ? '420px' : 'none' }}
           >
-            {/* Profile Avatar */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={reduceMotion ? { duration: 0 } : { duration: 0.8, delay: 0.2, type: "spring" }}
-              className="mx-auto w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-[#38bdf8] via-[#818cf8] to-[#c084fc] p-[2px] shadow-2xl shadow-indigo-500/20"
-            >
-              <div className="w-full h-full rounded-full bg-[#0f172a] flex items-center justify-center border-4 border-[#1e293b] overflow-hidden">
-                <span className="text-4xl md:text-6xl font-black bg-gradient-to-br from-[#38bdf8] to-[#c084fc] bg-clip-text text-transparent drop-shadow-sm">
-                  {personalInfo.name.charAt(0)}
-                </span>
-              </div>
-            </motion.div>
+            {/* Logo and Name in a Row */}
+            <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', gap: isMobile ? '1rem' : '2rem' }}>
+              {/* Profile Avatar */}
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={reduceMotion ? { duration: 0 } : { duration: 0.8, delay: 0.2, type: "spring" }}
+                style={{ width: isMobile ? '80px' : '140px', height: isMobile ? '80px' : '140px', borderRadius: '50%', background: 'linear-gradient(to bottom right, #38bdf8, #818cf8, #c084fc)', padding: '2px' }}
+              >
+                <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '50%', backgroundColor: '#0f172a', border: '4px solid #1e293b', overflow: 'hidden' }}>
+                  <Image
+                    src="/profile_picture.jpg"
+                    alt={personalInfo.name}
+                    fill
+                    sizes={isMobile ? "80px" : "140px"}
+                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                    priority
+                  />
+                </div>
+              </motion.div>
 
-            {/* Name and Role */}
-            <div className="space-y-3">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-os-text-primary tracking-tighter transition-colors drop-shadow-sm">
+              {/* Name */}
+              <h1 style={{ fontSize: isMobile ? '2.5rem' : '5rem', fontWeight: 900, color: 'var(--os-text-primary)', letterSpacing: '-0.05em', margin: 0, lineHeight: isMobile ? 1.05 : 1 }}>
                 {personalInfo.name}
               </h1>
-              <div className="h-1 w-20 mx-auto bg-gradient-to-r from-transparent via-[#38bdf8] to-transparent opacity-50" />
-              <p className="text-lg md:text-xl lg:text-2xl text-os-text-secondary font-medium tracking-wide uppercase opacity-80">
-                {personalInfo.role.split("|")[0].trim()}
-              </p>
             </div>
 
-            {/* Date */}
-            <p className="text-sm md:text-base text-os-text-secondary transition-colors">
-              {currentTime}
-            </p>
+            {/* Role and Stats */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0rem' }}>
+              <div style={{ height: '3px', width: '80px', background: 'linear-gradient(to right, transparent, #38bdf8, transparent)', opacity: 0.5, marginBottom: '0.5rem' }} />
+              <p style={{ fontSize: isMobile ? '1.1rem' : '1.6rem', color: 'var(--os-text-secondary)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>
+                {personalInfo.role.split("|")[0].trim()}
+              </p>
+              
+              {/* Availability - Now directly under role */}
+              <div style={{ marginTop: '0.5rem' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', padding: '0.4rem 1.2rem', borderRadius: '9999px', backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)', color: '#10b981', fontSize: '0.7rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#10b981' }} className="animate-pulse" />
+                  {personalInfo.availability}
+                </div>
+              </div>
+            </div>
 
-            {/* Impact Stats Grid */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={reduceMotion ? { duration: 0 } : { delay: 0.4 }}
-              className="grid grid-cols-3 gap-3 md:gap-6 py-4 md:py-6"
-            >
-              {[
-                { label: "Experience", value: highlights.yearsExperience || "3+" },
-                { label: "Projects", value: highlights.projectsCompleted || "10+" },
-                { label: "Core Skills", value: "Full Stack" },
-              ].map((stat, i) => (
-                <div key={i} className="flex flex-col items-center">
-                  <span className="text-xl md:text-2xl font-black text-os-text-primary">{stat.value}</span>
-                  <span className="text-[10px] md:text-xs text-os-text-secondary uppercase tracking-widest font-bold opacity-60">{stat.label}</span>
+            {isMobile && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', marginTop: '0.25rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '0.75rem', width: '100%' }}>
+                {heroStats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    style={{
+                      padding: '0.9rem 0.75rem',
+                      borderRadius: '16px',
+                      backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                      backdropFilter: 'blur(12px)',
+                    }}
+                  >
+                    <div style={{ fontSize: '1.15rem', fontWeight: 900, color: 'var(--os-text-primary)', lineHeight: 1.1 }}>
+                      {stat.value}
+                    </div>
+                    <div style={{ fontSize: '0.62rem', color: 'var(--os-text-secondary)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.12em', marginTop: '0.35rem' }}>
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+                </div>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.75rem', width: '100%' }}>
+                  {heroTechStack.map((tech) => (
+                    <span
+                      key={tech}
+                      style={{
+                        padding: '0.5rem 1rem',
+                        borderRadius: '8px',
+                        backgroundColor: 'rgba(255,255,255,0.03)',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        fontSize: '0.72rem',
+                        fontWeight: 'bold',
+                        color: 'var(--os-text-secondary)',
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      )}
+
+      {/* Stats Sidebar - Right Aligned Independent of Center Padding */}
+      {windows.length === 0 && !isMobile && (
+        <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 20, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: '4rem' }}>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '3rem' }}
+          >
+            {/* Impact Stats */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', alignItems: 'flex-end' }}>
+              {heroStats.map((stat, i) => (
+                <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--os-text-primary)', lineHeight: 1 }}>{stat.value}</span>
+                  <span style={{ fontSize: '11px', color: 'var(--os-text-secondary)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.2em', opacity: 0.6 }}>{stat.label}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
-            {/* Core Stack Pills */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={reduceMotion ? { duration: 0 } : { delay: 0.6 }}
-              className="flex flex-wrap justify-center gap-2 max-w-md mx-auto"
-            >
-              {["Next.js", "Python", "AWS", "AI", "Terraform"].map((tech) => (
-                <span 
+            {/* Tech Pills - Aligned Right */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: '0.75rem', maxWidth: '280px' }}>
+              {heroTechStack.map((tech) => (
+                <span
                   key={tech}
-                  className="px-3 py-1 rounded-full bg-os-text-primary/5 border border-os-text-primary/10 text-[10px] md:text-xs font-bold text-os-text-secondary transition-all hover:bg-os-text-primary/10"
+                  style={{ padding: '0.4rem 1rem', borderRadius: '4px', backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--os-text-secondary)', transition: 'all 0.2s' }}
                 >
                   {tech}
                 </span>
               ))}
-            </motion.div>
-
-            {/* Status Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={reduceMotion ? { duration: 0 } : { delay: 0.8 }}
-              className="pt-4"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[10px] md:text-xs font-bold uppercase tracking-widest shadow-sm">
-                <span className={`w-2 h-2 rounded-full bg-emerald-500 ${reduceMotion ? '' : 'animate-pulse'}`} />
-                {personalInfo.availability}
-              </div>
-            </motion.div>
-
-            {/* Hint */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={reduceMotion ? { duration: 0 } : { delay: 1.2 }}
-              className="text-[10px] md:text-xs text-os-text-secondary opacity-40 mt-8 transition-colors italic"
-            >
-              Explore my work via the taskbar or desktop icons
-            </motion.p>
+            </div>
           </motion.div>
         </div>
+      )}
+
+      {/* Footer Hint */}
+      {windows.length === 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          style={{ position: 'fixed', bottom: isMobile ? '4.25rem' : '3rem', left: '50%', transform: 'translateX(-50%)', color: 'var(--os-text-secondary)', opacity: 0.4, fontStyle: 'italic', zIndex: 20, pointerEvents: 'none', textAlign: 'center', maxWidth: isMobile ? 'calc(100vw - 1.5rem)' : 'none' }}
+        >
+          <p style={{ margin: 0, fontSize: isMobile ? '0.7rem' : '0.75rem', whiteSpace: 'nowrap' }}>
+            Explore my work via the taskbar or desktop icons
+          </p>
+          {isMobile && (
+            <p style={{ margin: '0.2rem 0 0', fontSize: '0.62rem', whiteSpace: 'nowrap' }}>
+              For better user experience, open portfolio on Desktop
+            </p>
+          )}
+        </motion.div>
       )}
 
       {/* Windows */}
@@ -428,12 +491,12 @@ export function Desktop() {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className={`fixed z-50 ${
                 isMobile
-                  ? "bottom-14 left-2 right-2"
+                  ? "bottom-14 left-1 right-1"
                   : "bottom-14 left-1/2 -translate-x-1/2"
               }`}
               style={{
                 width: isMobile ? "auto" : "600px",
-                maxWidth: "calc(100vw - 16px)",
+                maxWidth: isMobile ? "calc(100vw - 8px)" : "calc(100vw - 32px)",
               }}
             >
               <div
@@ -486,7 +549,7 @@ export function Desktop() {
                            ))
                          ) : (
                            <div className="p-8 text-center text-os-text-secondary italic text-sm">
-                             No results found for "{searchQuery}"
+                             No results found for &quot;{searchQuery}&quot;
                            </div>
                          )}
                        </div>
@@ -574,6 +637,7 @@ export function Desktop() {
         setBrightness={setBrightness}
         nightLight={nightLight}
         setNightLight={setNightLight}
+        highlightStartButton={windows.length === 0 && !showStartMenu}
       />
     </div>
   );

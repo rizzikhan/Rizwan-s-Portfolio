@@ -133,7 +133,7 @@ export function AboutContent() {
                 {/* Profile Image */}
                 <div className="relative aspect-square rounded-2xl overflow-hidden bg-foreground/5 border border-foreground/10">
                   <Image
-                    src="/ali pic.png"
+                    src="/profile_picture.jpg"
                     alt={`Portrait of ${personalInfo.name} - Full Stack Developer`}
                     fill
                     sizes="(max-width: 768px) 100vw, 300px"

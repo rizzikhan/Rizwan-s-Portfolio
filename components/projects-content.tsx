@@ -9,7 +9,10 @@ import portfolioData from "@/data/portfolio.json";
 import { useI18n } from "@/lib/i18n";
 
 export function ProjectsContent() {
-  const { experience, freelanceProjects } = portfolioData;
+  const experience = Array.isArray(portfolioData.experience) ? portfolioData.experience : [];
+  const freelanceProjects = Array.isArray(portfolioData.freelanceProjects)
+    ? portfolioData.freelanceProjects
+    : [];
   const { t } = useI18n();
   const [filter, setFilter] = useState<"all" | "work" | "freelance">("all");
 
