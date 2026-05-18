@@ -139,7 +139,7 @@ export function ProjectsContent() {
 
                   {project.achievements && project.achievements.length > 0 && (
                     <ul className="mb-3 space-y-1 md:space-y-1.5">
-                      {project.achievements.map((achievement, aIndex) => (
+                      {project.achievements.map((achievement: string, aIndex: number) => (
                         <li
                           key={aIndex}
                           className="text-xs text-foreground/60 flex items-start gap-2"
@@ -155,7 +155,7 @@ export function ProjectsContent() {
 
                   {project.technologies && project.technologies.length > 0 && (
                     <div className="flex flex-wrap gap-1 md:gap-1.5">
-                      {project.technologies.map((tech) => (
+                      {project.technologies.map((tech: string) => (
                         <span
                           key={tech}
                           className="px-2 py-0.5 text-[10px] md:text-xs font-mono bg-[var(--os-cyan)]/10 text-[var(--os-cyan)] rounded"

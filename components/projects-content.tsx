@@ -16,15 +16,39 @@ export function ProjectsContent() {
   const { t } = useI18n();
   const [filter, setFilter] = useState<"all" | "work" | "freelance">("all");
 
-  const allProjects = useMemo(
-    () => [
+  const allProjects = useMemo(() => {
+    const defaultProject = {
+      name: "",
+      description: "",
+      technologies: [] as string[],
+      achievements: [] as string[],
+    };
+
+    return [
       ...experience.flatMap((exp) =>
-        (exp.projects || []).map((p) => ({ ...p, type: "Work" as const }))
+        (Array.isArray(exp.projects) ? exp.projects : []).map((p) => {
+          const project =
+            typeof p === "object" && p !== null ? p : defaultProject;
+
+          return {
+            ...defaultProject,
+            ...project,
+            type: "Work" as const,
+          };
+        })
       ),
-      ...freelanceProjects.map((p) => ({ ...p, type: "Freelance" as const })),
-    ],
-    [experience, freelanceProjects]
-  );
+      ...freelanceProjects.map((p) => {
+        const project =
+          typeof p === "object" && p !== null ? p : defaultProject;
+
+        return {
+          ...defaultProject,
+          ...project,
+          type: "Freelance" as const,
+        };
+      }),
+    ];
+  }, [experience, freelanceProjects]);
 
   const filteredProjects = useMemo(() => {
     if (filter === "all") return allProjects;

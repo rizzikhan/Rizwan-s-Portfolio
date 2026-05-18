@@ -225,9 +225,9 @@ export function ExperienceContent() {
                 {edu.location && (
                   <p className="text-xs text-foreground/50">📍 {edu.location}</p>
                 )}
-                {edu.focus && (
+                {edu.details && (
                   <p className="text-xs text-foreground/70 italic mt-1 line-clamp-2">
-                    Focus: {edu.focus}
+                    {edu.details}
                   </p>
                 )}
                 <p className="text-xs text-[var(--os-cyan)] font-mono mt-1">
