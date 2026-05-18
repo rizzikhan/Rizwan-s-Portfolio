@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { ContactContent } from "@/components/contact-content";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact | Ali Burhan - Let's Build Together",
-  description:
-    "Get in touch with Ali Burhan, Full Stack Developer & Architect. Available for projects in Next.js, React, Python, AWS & AI. Email: aliburhan.dev.ai@gmail.com | Lahore, Pakistan",
+  title: "Contact",
+  description: `Contact ${siteConfig.name}, ${siteConfig.role} based in ${siteConfig.location}. Available for full-stack, cloud, and AI-focused projects. Email: ${siteConfig.email}.`,
   keywords: [
-    "Contact Ali Burhan",
+    `Contact ${siteConfig.name}`,
     "Hire Full Stack Developer",
     "Hire Next.js Developer",
     "Hire Python Developer",
@@ -14,26 +14,24 @@ export const metadata: Metadata = {
     "Hire AI Engineer",
     "Software Engineer for Hire",
     "Freelance Developer Pakistan",
-    "Contact Full Stack Architect",
+    `Hire ${siteConfig.role}`,
   ],
-  authors: [{ name: "Ali Burhan", url: "https://aliburhan.com" }],
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   alternates: {
-    canonical: "https://aliburhan.com/contact",
+    canonical: absoluteUrl("/contact"),
   },
   openGraph: {
-    title: "Contact Ali Burhan - Full Stack Developer & Architect",
-    description:
-      "Get in touch with Ali Burhan, Full Stack Developer & Architect. Available for projects in Next.js, React, Python, AWS & AI.",
-    url: "https://aliburhan.com/contact",
+    title: `Contact ${siteConfig.name}`,
+    description: `Get in touch with ${siteConfig.name} for web, cloud, and AI-focused development work.`,
+    url: absoluteUrl("/contact"),
     type: "website",
-    images: ["/og-image.png"],
+    images: [siteConfig.ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Ali Burhan - Full Stack Developer",
-    description:
-      "Get in touch with Ali Burhan, Full Stack Developer & Architect. Available for projects in Next.js, React, Python, AWS & AI.",
-    images: ["/og-image.png"],
+    title: `Contact ${siteConfig.name}`,
+    description: `Reach ${siteConfig.name} for full-stack, cloud, and AI collaboration.`,
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -43,21 +41,17 @@ export default function ContactPage() {
     "@type": "ContactPage",
     mainEntity: {
       "@type": "Person",
-      name: "Ali Burhan",
-      jobTitle: "Full Stack Developer & Architect",
-      email: "aliburhan.dev.ai@gmail.com",
-      telephone: "+92-300-1499488",
-      url: "https://aliburhan.com",
+      name: siteConfig.name,
+      jobTitle: siteConfig.role,
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      url: absoluteUrl("/"),
       address: {
         "@type": "PostalAddress",
         addressLocality: "Lahore",
         addressCountry: "Pakistan",
       },
-      sameAs: [
-        "https://github.com/Ali-Burhan",
-        "https://www.linkedin.com/in/ali-burhan-9076b42b6/",
-        "https://twitter.com/aliburhan_dev",
-      ],
+      sameAs: siteConfig.sameAs,
     },
   };
 
@@ -69,13 +63,13 @@ export default function ContactPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://aliburhan.com",
+        item: absoluteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Contact",
-        item: "https://aliburhan.com/contact",
+        item: absoluteUrl("/contact"),
       },
     ],
   };

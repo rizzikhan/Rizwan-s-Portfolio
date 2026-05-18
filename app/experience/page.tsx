@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { ExperienceContent } from "@/components/experience-content";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Experience | Ali Burhan - Full Stack Developer Portfolio",
-  description:
-    "Ali Burhan's professional experience: Software Engineer at Hashlogics building microservices platforms serving 1000+ sites, and Associate Engineer at Techling. Expert in Next.js, Python, AWS, LangChain & AI development.",
+  title: "Experience",
+  description: `Explore ${siteConfig.name}'s experience across ${siteConfig.currentCompany}, Mercury Sols, and production projects spanning microservices, cloud architecture, real-time systems, and full-stack product development.`,
   keywords: [
-    "Ali Burhan Experience",
+    `${siteConfig.name} Experience`,
     "Hashlogics Software Engineer",
-    "Techling Associate Engineer",
+    "Mercury Sols Software Engineer",
     "Full Stack Developer Experience",
     "AWS Developer Experience",
     "Python Developer Experience",
@@ -16,24 +16,22 @@ export const metadata: Metadata = {
     "Software Engineer Pakistan",
     "Work Experience Lahore",
   ],
-  authors: [{ name: "Ali Burhan", url: "https://aliburhan.com" }],
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   alternates: {
-    canonical: "https://aliburhan.com/experience",
+    canonical: absoluteUrl("/experience"),
   },
   openGraph: {
-    title: "Experience - Ali Burhan | Full Stack Developer Portfolio",
-    description:
-      "Ali Burhan's professional experience: Software Engineer at Hashlogics building microservices platforms serving 1000+ sites, and Associate Engineer at Techling.",
-    url: "https://aliburhan.com/experience",
+    title: `${siteConfig.name} Experience`,
+    description: `Professional experience from ${siteConfig.name} across full-stack engineering, cloud systems, and scalable application delivery.`,
+    url: absoluteUrl("/experience"),
     type: "website",
-    images: ["/og-image.png"],
+    images: [siteConfig.ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Experience - Ali Burhan Portfolio",
-    description:
-      "Ali Burhan's professional experience: Software Engineer at Hashlogics building microservices platforms serving 1000+ sites globally.",
-    images: ["/og-image.png"],
+    title: `${siteConfig.name} Experience`,
+    description: `See ${siteConfig.name}'s work across microservices, cloud infrastructure, and modern web product development.`,
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -41,9 +39,9 @@ export default function ExperiencePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Ali Burhan - Professional Experience",
-    description: "Professional experience of Ali Burhan as Full Stack Developer & Architect",
-    url: "https://aliburhan.com/experience",
+    name: `${siteConfig.name} - Professional Experience`,
+    description: `Professional experience of ${siteConfig.name} as a ${siteConfig.role}`,
+    url: absoluteUrl("/experience"),
   };
 
   const breadcrumbJsonLd = {
@@ -54,13 +52,13 @@ export default function ExperiencePage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://aliburhan.com",
+        item: absoluteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Experience",
-        item: "https://aliburhan.com/experience",
+        item: absoluteUrl("/experience"),
       },
     ],
   };

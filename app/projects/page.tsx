@@ -1,43 +1,38 @@
 import type { Metadata } from "next";
 import { ProjectsContent } from "@/components/projects-content";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Projects | Ali Burhan - Full Stack Developer Portfolio",
-  description:
-    "Explore projects by Ali Burhan: Forwood Safety (1000+ sites), Lumaya marketplace, TeachTrack AI, Emotion-Aware Voice System, and CazVid. Built with Next.js, Python, AWS, LangChain & AI technologies.",
+  title: "Projects",
+  description: `Explore projects by ${siteConfig.name}, including Forwood Safety, LexPair, Authenpush, Oxit, and an emotion-aware multilingual voice system built with Next.js, Python, AWS, Supabase, and AI tooling.`,
   keywords: [
-    "Ali Burhan Projects",
+    `${siteConfig.name} Projects`,
     "Forwood Safety",
-    "Lumaya marketplace",
-    "TeachTrack AI",
+    "LexPair",
+    "Authenpush",
     "Full Stack Developer Projects",
     "Next.js Projects",
     "Python AWS Projects",
-    "LangChain Projects",
     "AI Projects Pakistan",
-    "RAG Applications",
-    "LLM Projects",
     "Serverless Projects",
     "Microservices Projects",
   ],
-  authors: [{ name: "Ali Burhan", url: "https://aliburhan.com" }],
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   alternates: {
-    canonical: "https://aliburhan.com/projects",
+    canonical: absoluteUrl("/projects"),
   },
   openGraph: {
-    title: "Projects - Ali Burhan | Full Stack Developer Portfolio",
-    description:
-      "Explore projects by Ali Burhan: Forwood Safety (1000+ sites), Lumaya marketplace, TeachTrack AI, Emotion-Aware Voice System, and CazVid.",
-    url: "https://aliburhan.com/projects",
+    title: `${siteConfig.name} Projects`,
+    description: `Explore ${siteConfig.name}'s portfolio of production products, cloud systems, and AI-enabled applications.`,
+    url: absoluteUrl("/projects"),
     type: "website",
-    images: ["/og-image.png"],
+    images: [siteConfig.ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Projects - Ali Burhan Portfolio",
-    description:
-      "Explore projects by Ali Burhan: Forwood Safety, Lumaya, TeachTrack AI, and more. Built with Next.js, Python, AWS & AI.",
-    images: ["/og-image.png"],
+    title: `${siteConfig.name} Projects`,
+    description: `Browse ${siteConfig.name}'s work across full-stack apps, cloud platforms, and AI-powered solutions.`,
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -45,9 +40,9 @@ export default function ProjectsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Ali Burhan - Projects Portfolio",
-    description: "Projects portfolio of Ali Burhan featuring AI-driven platforms, cloud-native apps & enterprise solutions",
-    url: "https://aliburhan.com/projects",
+    name: `${siteConfig.name} - Projects Portfolio`,
+    description: `Projects portfolio of ${siteConfig.name} featuring cloud-native apps, enterprise products, and AI-enabled solutions`,
+    url: absoluteUrl("/projects"),
   };
 
   const breadcrumbJsonLd = {
@@ -58,13 +53,13 @@ export default function ProjectsPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://aliburhan.com",
+        item: absoluteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Projects",
-        item: "https://aliburhan.com/projects",
+        item: absoluteUrl("/projects"),
       },
     ],
   };

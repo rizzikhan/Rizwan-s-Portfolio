@@ -1,59 +1,56 @@
 import { Metadata } from "next";
 import { NowContent } from "@/components/now-content";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Now | Ali Burhan - What I'm Doing Now",
-  description:
-    "What Ali Burhan is doing now: Pursuing Master's in CS at UET Lahore, building at Hashlogics, learning AWS CDK & LangChain, and working on side projects. Updated December 2025.",
+  title: "Now",
+  description: `What ${siteConfig.name} is focused on now: building production systems at ${siteConfig.currentCompany}, sharpening cloud and automation skills, and exploring AI-enabled product experiences.`,
   keywords: [
-    "Ali Burhan Now",
+    `${siteConfig.name} Now`,
     "What I'm doing now",
     "Current Projects",
     "Learning Full Stack",
-    "UET Lahore Masters",
     "Hashlogics Work",
     "AWS Learning",
-    "LangChain Projects",
+    "Terraform Projects",
   ],
-  authors: [{ name: "Ali Burhan", url: "https://aliburhan.com" }],
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   alternates: {
-    canonical: "https://aliburhan.com/now",
+    canonical: absoluteUrl("/now"),
   },
   openGraph: {
-    title: "Now - Ali Burhan | What I'm Doing Now",
-    description:
-      "What Ali Burhan is doing now: Pursuing Master's in CS at UET Lahore, building at Hashlogics, learning AWS CDK & LangChain.",
-    url: "https://aliburhan.com/now",
+    title: `${siteConfig.name} Now`,
+    description: `A snapshot of what ${siteConfig.name} is currently building, learning, and exploring.`,
+    url: absoluteUrl("/now"),
     type: "website",
-    images: ["/og-image.png"],
+    images: [siteConfig.ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Now - Ali Burhan Portfolio",
-    description:
-      "What Ali Burhan is doing now: Pursuing Master's in CS at UET Lahore, building at Hashlogics, learning AWS CDK & LangChain.",
-    images: ["/og-image.png"],
+    title: `${siteConfig.name} Now`,
+    description: `See what ${siteConfig.name} is working on now across engineering, cloud, and AI.`,
+    images: [siteConfig.ogImage],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "What I'm Doing Now - Ali Burhan",
-  description: "Current activities and projects of Ali Burhan including Master's at UET Lahore, work at Hashlogics, and side projects",
-  datePublished: "2025-12-01",
-  dateModified: "2025-12-01",
+  headline: `What ${siteConfig.name} Is Doing Now`,
+  description: `Current activities and priorities from ${siteConfig.name} across product engineering, cloud systems, and AI-enabled work.`,
+  datePublished: "2026-05-18",
+  dateModified: "2026-05-18",
   author: {
     "@type": "Person",
-    name: "Ali Burhan",
-    url: "https://aliburhan.com",
+    name: siteConfig.name,
+    url: absoluteUrl("/"),
   },
   publisher: {
     "@type": "Organization",
-    name: "Ali Burhan Portfolio",
+    name: siteConfig.siteName,
     logo: {
       "@type": "ImageObject",
-      url: "https://aliburhan.com/og-image.png",
+      url: absoluteUrl(siteConfig.ogImage),
     },
   },
 };
@@ -66,13 +63,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://aliburhan.com",
+      item: absoluteUrl("/"),
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Now",
-      item: "https://aliburhan.com/now",
+      item: absoluteUrl("/now"),
     },
   ],
 };

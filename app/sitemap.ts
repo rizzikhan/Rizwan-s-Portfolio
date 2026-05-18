@@ -1,45 +1,45 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://aliburhan.com'
-  const currentDate = new Date().toISOString().split('T')[0]
+  const currentDate = new Date().toISOString().split("T")[0];
 
   return [
     {
-      url: baseUrl,
+      url: absoluteUrl("/"),
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/about`,
+      url: absoluteUrl("/about"),
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/experience`,
+      url: absoluteUrl("/experience"),
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects`,
+      url: absoluteUrl("/projects"),
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: absoluteUrl("/contact"),
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/now`,
+      url: absoluteUrl("/now"),
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 0.7,
     },
-  ]
+  ];
 }

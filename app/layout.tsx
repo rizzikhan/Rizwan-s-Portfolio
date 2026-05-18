@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/lib/i18n";
 import { WebVitals } from "@/components/web-vitals";
 import { CursorCleanup } from "@/components/cursor-cleanup";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,64 +18,40 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aliburhan.com"),
+  metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Ali Burhan - Full Stack Developer | Next.js • Python • AWS • AI",
-    template: "%s | Ali Burhan",
+    default: `${siteConfig.name} - ${siteConfig.role} | Next.js • React • Node.js • AWS`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Ali Burhan - Full Stack Developer & Architect specializing in Next.js, React, Python, AWS & AI. Building scalable cloud-native solutions serving 1000+ sites globally. Based in Lahore, Pakistan.",
-  keywords: [
-    "Ali Burhan",
-    "Full Stack Developer",
-    "Full Stack Architect",
-    "Next.js Developer",
-    "React Developer",
-    "Python Developer",
-    "AWS Developer",
-    "AI Engineer",
-    "LangChain Developer",
-    "Web Developer",
-    "Software Engineer",
-    "Lahore Developer",
-    "Pakistan Developer",
-    "Serverless Architect",
-    "Cloud Engineer",
-    "LLM Developer",
-    "RAG Developer",
-    "Full Stack Pakistan",
-  ],
-  authors: [{ name: "Ali Burhan", url: "https://aliburhan.com" }],
-  creator: "Ali Burhan",
-  publisher: "Ali Burhan",
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   category: "Technology",
   openGraph: {
     type: "website",
     locale: "en_US",
     alternateLocale: ["es_ES", "fr_FR"],
-    url: "https://aliburhan.com",
-    siteName: "Ali Burhan Portfolio",
-    title: "Ali Burhan - Full Stack Developer | Next.js • Python • AWS • AI",
-    description:
-      "Ali Burhan is a Full Stack Developer & Architect specializing in Next.js, React, Python, AWS & AI. Building scalable cloud-native solutions serving 1000+ sites globally.",
+    url: siteConfig.siteUrl,
+    siteName: siteConfig.siteName,
+    title: `${siteConfig.name} - ${siteConfig.role} | Next.js • React • Node.js • AWS`,
+    description: siteConfig.description,
     images: [
       {
-        url: "/og-image.png",
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Ali Burhan - Full Stack Developer & Architect",
+        alt: `${siteConfig.name} - ${siteConfig.role}`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@aliburhan_dev",
-    creator: "@aliburhan_dev",
-    title: "Ali Burhan - Full Stack Developer | Next.js • Python • AWS • AI",
-    description:
-      "Full Stack Developer & Architect specializing in Next.js, React, Python, AWS & AI. Building scalable cloud-native solutions.",
-    images: ["/og-image.png"],
+    title: `${siteConfig.name} - ${siteConfig.role} | Next.js • React • Node.js • AWS`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -91,7 +68,7 @@ export const metadata: Metadata = {
     google: process.env.GOOGLE_SITE_VERIFICATION || "",
   },
   alternates: {
-    canonical: "https://aliburhan.com",
+    canonical: absoluteUrl("/"),
   },
 };
 
@@ -102,9 +79,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

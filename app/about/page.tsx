@@ -1,39 +1,37 @@
 import type { Metadata } from "next";
 import { AboutContent } from "@/components/about-content";
+import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About | Ali Burhan - Full Stack Developer & Architect",
-  description:
-    "Learn about Ali Burhan, a Full Stack Developer & Architect from Lahore, Pakistan with 3+ years experience in Next.js, React, Python, AWS & AI. UET Lahore CS graduate building scalable cloud-native solutions.",
+  title: "About",
+  description: `Learn more about ${siteConfig.name}, a ${siteConfig.role} from ${siteConfig.location} specializing in scalable web apps, microservices, cloud infrastructure, and AI-integrated solutions.`,
   keywords: [
-    "Ali Burhan",
-    "About Ali Burhan",
+    siteConfig.name,
+    `About ${siteConfig.name}`,
     "Full Stack Developer Pakistan",
     "Software Engineer Lahore",
     "Next.js Developer Pakistan",
     "AWS Developer Pakistan",
     "AI Engineer Pakistan",
-    "UET Lahore",
-    "Full Stack Architect",
+    siteConfig.educationInstitution,
+    siteConfig.role,
   ],
-  authors: [{ name: "Ali Burhan", url: "https://aliburhan.com" }],
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   alternates: {
-    canonical: "https://aliburhan.com/about",
+    canonical: absoluteUrl("/about"),
   },
   openGraph: {
-    title: "About Ali Burhan - Full Stack Developer & Architect",
-    description:
-      "Learn about Ali Burhan, a Full Stack Developer & Architect from Lahore, Pakistan with 3+ years experience in Next.js, React, Python, AWS & AI.",
-    url: "https://aliburhan.com/about",
+    title: `About ${siteConfig.name}`,
+    description: `Learn more about ${siteConfig.name}, a ${siteConfig.role} from ${siteConfig.location} with experience across frontend, backend, cloud, and AI-enabled products.`,
+    url: absoluteUrl("/about"),
     type: "profile",
-    images: ["/og-image.png"],
+    images: [siteConfig.ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Ali Burhan - Full Stack Developer",
-    description:
-      "Learn about Ali Burhan, a Full Stack Developer & Architect from Lahore, Pakistan with 3+ years experience in Next.js, React, Python, AWS & AI.",
-    images: ["/og-image.png"],
+    title: `About ${siteConfig.name}`,
+    description: `Learn more about ${siteConfig.name}, a ${siteConfig.role} from ${siteConfig.location}.`,
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -45,18 +43,14 @@ export default function AboutPage() {
     dateModified: new Date().toISOString().split("T")[0],
     mainEntity: {
       "@type": "Person",
-      name: "Ali Burhan",
-      jobTitle: "Full Stack Developer & Architect",
-      description: "Full Stack Developer & Architect with 3+ years experience in Next.js, React, Python, AWS & AI",
-      url: "https://aliburhan.com",
-      sameAs: [
-        "https://github.com/Ali-Burhan",
-        "https://www.linkedin.com/in/ali-burhan-9076b42b6/",
-        "https://twitter.com/aliburhan_dev",
-      ],
+      name: siteConfig.name,
+      jobTitle: siteConfig.role,
+      description: siteConfig.description,
+      url: absoluteUrl("/"),
+      sameAs: siteConfig.sameAs,
       alumniOf: {
         "@type": "EducationalOrganization",
-        name: "University of Engineering and Technology (UET) Lahore",
+        name: siteConfig.educationInstitution,
       },
     },
   };
@@ -69,13 +63,13 @@ export default function AboutPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://aliburhan.com",
+        item: absoluteUrl("/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "About",
-        item: "https://aliburhan.com/about",
+        item: absoluteUrl("/about"),
       },
     ],
   };
