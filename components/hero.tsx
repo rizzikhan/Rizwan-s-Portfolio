@@ -62,7 +62,7 @@ export function Hero() {
             className="mb-6"
           >
             <p className="text-xl sm:text-2xl md:text-3xl font-medium text-foreground/60">
-              Full Stack Developer
+              Backend Developer & AI Engineer
             </p>
           </motion.div>
 
@@ -73,7 +73,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap justify-center gap-3 mb-8"
           >
-            {["Next.js", "React", "Python", "AWS", "AI/LLMs"].map((tech, index) => (
+            {["Python", "Django", "FastAPI", "PostgreSQL", "AI/LLMs"].map((tech, index) => (
               <span
                 key={tech}
                 className="px-4 py-2 bg-accent/10 border border-accent/20 rounded-lg text-accent text-sm font-mono"
@@ -90,10 +90,10 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="max-w-2xl mx-auto text-lg text-foreground/60 leading-relaxed mb-10"
           >
-            I build scalable web applications and AI-powered solutions.
-            Currently crafting cloud-native platforms at{" "}
-            <span className="text-accent font-medium">Hashlogics</span>,
-            working on enterprise safety systems and business marketplaces.
+            I build scalable Django backends and AI-powered products.
+            Currently building AI platforms at{" "}
+            <span className="text-accent font-medium">CRYMZEE Networks</span>,
+            working on AI nutrition apps, HR management systems, and LLM-powered tools.
           </motion.p>
 
           {/* CTA Buttons */}

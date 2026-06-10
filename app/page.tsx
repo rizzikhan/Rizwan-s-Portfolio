@@ -4,8 +4,8 @@ import { ClientOnly } from "@/components/client-only";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | ${siteConfig.role} | Next.js • React • Node.js • AWS`,
-  description: `${siteConfig.name} is a ${siteConfig.role} based in ${siteConfig.location} with ${siteConfig.yearsExperience} years of experience building scalable web applications, microservices, and cloud-native systems with React, Next.js, Node.js, Python, AWS, and Terraform.`,
+  title: `${siteConfig.name} | ${siteConfig.role} | Python • Django • AI/LLM • AWS`,
+  description: `${siteConfig.name} is a ${siteConfig.role} based in ${siteConfig.location} with ${siteConfig.yearsExperience} years of experience building scalable backend systems and AI-powered products with Python, Django, FastAPI, PostgreSQL, and AWS, including LLM integrations, RAG, and RLHF-based model evaluation.`,
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   creator: siteConfig.name,
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: absoluteUrl("/"),
     siteName: siteConfig.siteName,
-    title: `${siteConfig.name} | ${siteConfig.role} | Next.js • React • Node.js • AWS`,
-    description: `${siteConfig.name} is a ${siteConfig.role} based in ${siteConfig.location}, building scalable web applications, cloud systems, and AI-integrated products.`,
+    title: `${siteConfig.name} | ${siteConfig.role} | Python • Django • AI/LLM • AWS`,
+    description: `${siteConfig.name} is a ${siteConfig.role} based in ${siteConfig.location}, building scalable Django backends, REST APIs, and AI/LLM-integrated products.`,
     images: [
       {
         url: siteConfig.ogImage,
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | ${siteConfig.role} | Next.js • React • Node.js • AWS`,
-    description: `${siteConfig.name} is a ${siteConfig.role} specializing in full-stack development, cloud systems, and AI-powered applications.`,
+    title: `${siteConfig.name} | ${siteConfig.role} | Python • Django • AI/LLM • AWS`,
+    description: `${siteConfig.name} is a ${siteConfig.role} specializing in Python/Django backend development and AI-powered applications.`,
     images: [siteConfig.ogImage],
   },
   robots: {
@@ -70,14 +70,16 @@ export default function Home() {
     telephone: siteConfig.phone,
     sameAs: siteConfig.sameAs,
     knowsAbout: [
-      "Next.js",
-      "React",
-      "Node.js",
       "Python",
+      "Django",
+      "FastAPI",
+      "PostgreSQL",
       "AWS",
-      "Terraform",
-      "Full Stack Development",
-      "Cloud Architecture",
+      "LangChain",
+      "Retrieval-Augmented Generation (RAG)",
+      "RLHF",
+      "Backend Development",
+      "AI Engineering",
     ],
     description: siteConfig.description,
     alumniOf: {

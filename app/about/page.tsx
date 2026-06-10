@@ -4,15 +4,16 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Learn more about ${siteConfig.name}, a ${siteConfig.role} from ${siteConfig.location} specializing in scalable web apps, microservices, cloud infrastructure, and AI-integrated solutions.`,
+  description: `Learn more about ${siteConfig.name}, a ${siteConfig.role} from ${siteConfig.location} specializing in Django backends, REST APIs, cloud infrastructure, and AI/LLM-integrated solutions.`,
   keywords: [
     siteConfig.name,
     `About ${siteConfig.name}`,
-    "Full Stack Developer Pakistan",
+    "Python Developer Pakistan",
+    "Django Developer Pakistan",
     "Software Engineer Lahore",
-    "Next.js Developer Pakistan",
-    "AWS Developer Pakistan",
+    "Backend Developer Pakistan",
     "AI Engineer Pakistan",
+    "RLHF Specialist",
     siteConfig.educationInstitution,
     siteConfig.role,
   ],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `About ${siteConfig.name}`,
-    description: `Learn more about ${siteConfig.name}, a ${siteConfig.role} from ${siteConfig.location} with experience across frontend, backend, cloud, and AI-enabled products.`,
+    description: `Learn more about ${siteConfig.name}, a ${siteConfig.role} from ${siteConfig.location} with experience across Django backends, cloud infrastructure, and AI-enabled products.`,
     url: absoluteUrl("/about"),
     type: "profile",
     images: [siteConfig.ogImage],

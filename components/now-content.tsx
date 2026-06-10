@@ -2,10 +2,12 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Code, Target, MapPin, Mail, Calendar } from "lucide-react";
+import { BookOpen, Code, Target, MapPin, Mail, Github } from "lucide-react";
+import portfolioData from "@/data/portfolio.json";
 
 export function NowContent() {
-  const lastUpdated = "December 2025";
+  const { personalInfo, socialLinks } = portfolioData;
+  const lastUpdated = "June 2026";
 
   return (
     <div className="min-h-screen bg-background">
@@ -42,23 +44,23 @@ export function NowContent() {
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-bold text-foreground mb-2">
-                Master's in Computer Science
+                AI Engineering & RLHF
               </h3>
               <p className="text-foreground/70 mb-3">
-                University of Engineering and Technology (UET) Lahore • 2025-2027
+                Deepening my skills in LLM-based product development and model evaluation
               </p>
               <ul className="space-y-2 text-foreground/80">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Advanced algorithms and distributed systems</span>
+                  <span>RLHF workflows and prompt-based evaluation across GPT, Claude, Llama, and Gemini</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Cloud architecture patterns</span>
+                  <span>Advanced RAG architectures and vector search with LangChain</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>AI/ML research and applications</span>
+                  <span>LLM fine-tuning and AI safety/model evaluation techniques</span>
                 </li>
               </ul>
             </div>
@@ -69,12 +71,12 @@ export function NowContent() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "Advanced LangChain patterns",
-                  "AWS CDK",
-                  "Next.js 15",
-                  "React Server Components",
+                  "RAG pipelines",
+                  "Prompt engineering",
                   "Vector databases",
-                  "Agent frameworks",
+                  "Django Channels & WebSockets",
+                  "Multi-tenant SaaS architecture",
+                  "AI agent frameworks",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -97,44 +99,40 @@ export function NowContent() {
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-bold text-foreground mb-2">
-                At Hashlogics
+                At CRYMZEE Networks
               </h3>
               <ul className="space-y-2 text-foreground/80">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Scaling Forwood Safety platform to new markets</span>
+                  <span>Building Nutrimode, an AI-powered nutrition & fitness platform with OpenAI and DALL·E</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Building AI-powered internal tools with LangChain</span>
+                  <span>Developing an AI-powered HR management platform with real-time features via Django Channels</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Optimizing microservices for performance</span>
+                  <span>Building an AI coupon finder & promo code aggregator with Django REST Framework and Celery</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Leading quarterly release cycles as Release Manager</span>
+                  <span>Deploying and scaling services with Docker, AWS, Stripe, and Firebase</span>
                 </li>
               </ul>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-3">
-                Side Projects
+                Open Source & Side Projects
               </h3>
               <ul className="space-y-2 text-foreground/80">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Personal AI assistant using GPT-4 and voice</span>
+                  <span>Maintaining IntelliFlow, an AI-powered multi-tenant SaaS platform on GitHub</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Open-source Next.js starter template</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-accent mt-1">▹</span>
-                  <span>Technical blog on Full Stack + AI topics</span>
+                  <span>Exploring RAG-based chatbots and LangChain tooling for e-commerce</span>
                 </li>
               </ul>
             </div>
@@ -150,14 +148,14 @@ export function NowContent() {
           <div className="space-y-6">
             <div>
               <h3 className="text-xl font-bold text-foreground mb-3">
-                Q1 2025
+                2026 Goals
               </h3>
               <div className="grid gap-3">
                 {[
-                  "Publish 4 technical blog posts",
-                  "Contribute to 2 open-source projects",
-                  "Complete AWS Solutions Architect certification",
-                  "Build portfolio of 3 AI-powered tools",
+                  "Ship 2+ more AI-powered platforms at CRYMZEE Networks",
+                  "Deepen expertise in LLM fine-tuning and AI safety evaluation",
+                  "Contribute to open-source LangChain & RAG tooling",
+                  "Grow into a senior backend/AI engineering role",
                 ].map((goal, i) => (
                   <motion.div
                     key={goal}
@@ -180,49 +178,20 @@ export function NowContent() {
               <ul className="space-y-2 text-foreground/80">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Transition to Senior Full Stack Engineer role</span>
+                  <span>Take on more ownership of AI/LLM features end-to-end</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Speak at local tech meetup</span>
+                  <span>Mentor junior Python/Django developers</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Mentor junior developers</span>
+                  <span>Share technical writing on Django + AI integration</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Build personal brand on LinkedIn/Twitter</span>
+                  <span>Expand my professional network in the AI/LLM space</span>
                 </li>
-              </ul>
-            </div>
-          </div>
-        </Section>
-
-        {/* Currently Reading */}
-        <Section
-          icon={<BookOpen className="w-6 h-6" />}
-          title="Currently Reading"
-          delay={0.4}
-        >
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                Technical
-              </h3>
-              <ul className="space-y-2 text-foreground/80">
-                <li>"Designing Data-Intensive Applications" by Martin Kleppmann</li>
-                <li>"Building LLM Apps" by Valentina Alto</li>
-                <li>AWS Well-Architected Framework docs</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                Professional
-              </h3>
-              <ul className="space-y-2 text-foreground/80">
-                <li>"Staff Engineer" by Will Larson</li>
-                <li>"The Pragmatic Programmer" (re-reading)</li>
               </ul>
             </div>
           </div>
@@ -232,7 +201,7 @@ export function NowContent() {
         <Section
           icon={<MapPin className="w-6 h-6" />}
           title="Currently Based"
-          delay={0.5}
+          delay={0.4}
         >
           <div className="space-y-4">
             <p className="text-xl font-semibold text-foreground">
@@ -245,7 +214,7 @@ export function NowContent() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">▹</span>
-                <span>Available for consulting projects</span>
+                <span>Available for backend & AI freelance projects</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">▹</span>
@@ -259,7 +228,7 @@ export function NowContent() {
         <Section
           icon={<Mail className="w-6 h-6" />}
           title="Let's Connect"
-          delay={0.6}
+          delay={0.5}
         >
           <div className="space-y-4">
             <p className="text-foreground/80">
@@ -267,13 +236,13 @@ export function NowContent() {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href="mailto:aliburhan.dev.ai@gmail.com"
+                href={`mailto:${personalInfo.email}`}
                 className="px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-accent/50 transition-all"
               >
                 Send Email
               </a>
               <a
-                href="https://linkedin.com/in/aliburhan"
+                href={socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-foreground/10 border border-foreground/20 rounded-lg font-semibold hover:bg-foreground/20 transition-all"
@@ -281,13 +250,13 @@ export function NowContent() {
                 LinkedIn
               </a>
               <a
-                href="https://calendly.com/aliburhan"
+                href={socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-foreground/10 border border-foreground/20 rounded-lg font-semibold hover:bg-foreground/20 transition-all inline-flex items-center gap-2"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Schedule Call</span>
+                <Github className="w-4 h-4" />
+                <span>GitHub</span>
               </a>
             </div>
           </div>

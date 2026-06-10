@@ -55,10 +55,10 @@ export function AboutContent() {
         </h2>
         <div className="grid gap-2 md:gap-3 grid-cols-1 sm:grid-cols-2">
           {[
-            { title: "Full Stack Development", desc: "Next.js, React, Python, Node.js", icon: "💻" },
-            { title: "Cloud Architecture", desc: "AWS, Terraform, Serverless", icon: "☁️" },
-            { title: "AI Integration", desc: "LangChain, OpenAI, LLMs", icon: "🤖" },
-            { title: "DevOps & Testing", desc: "Docker, Jenkins, CI/CD", icon: "🔧" },
+            { title: "Backend Development", desc: "Python, Django, DRF, FastAPI", icon: "💻" },
+            { title: "Database & Caching", desc: "PostgreSQL, Redis, Celery", icon: "🗄️" },
+            { title: "AI Integration", desc: "LangChain, OpenAI, RAG, RLHF", icon: "🤖" },
+            { title: "DevOps & Testing", desc: "Docker, AWS, CI/CD, Pytest", icon: "🔧" },
           ].map((item) => (
             <div
               key={item.title}

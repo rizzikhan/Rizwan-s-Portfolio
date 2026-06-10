@@ -58,29 +58,30 @@ export function AboutContent() {
                 <div className="space-y-4 text-foreground/70 text-base leading-relaxed">
                   <p>
                     I&apos;m <span className="text-foreground font-medium">{personalInfo.name}</span>,
-                    a Full Stack Developer with expertise in building scalable, cloud-native applications
-                    that drive measurable business impact.
+                    a Backend Developer & AI Engineer with expertise in building production-grade
+                    Python/Django platforms and AI-powered products.
                   </p>
                   <p>
-                    With over 3 years of professional experience, I specialize in modern JavaScript
-                    ecosystems (<span className="text-accent">Next.js</span>, <span className="text-accent">React</span>, Node.js)
-                    and <span className="text-accent">Python</span>, with deep expertise in <span className="text-accent">AWS</span> cloud
-                    architecture and AI-powered solutions using <span className="text-accent">LangChain</span> and LLMs.
+                    With over 2 years of professional experience, I specialize in
+                    <span className="text-accent"> Django</span>, <span className="text-accent">Django REST Framework</span>,
+                    and <span className="text-accent">FastAPI</span>, with deep expertise in
+                    <span className="text-accent"> LLM integrations</span> using <span className="text-accent">LangChain</span>,
+                    Retrieval-Augmented Generation (RAG), and OpenAI/Anthropic APIs.
                   </p>
                   <p>
-                    Currently contributing to microservices platforms serving 1000+ sites across 60+ countries,
-                    building AI-powered educational tools that reduce teacher workload by 70%, and pursuing
-                    my Master&apos;s in Computer Science at UET Lahore.
+                    Currently building AI-powered platforms at CRYMZEE Networks, with prior experience
+                    as an RLHF specialist evaluating frontier LLMs (GPT, Claude, Llama, Gemini) and
+                    shipping Django/AI products for e-commerce and SaaS clients.
                   </p>
                 </div>
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-foreground/10">
                   {[
-                    { value: "3+", label: "Years Experience" },
-                    { value: "20+", label: "Projects" },
-                    { value: "1000+", label: "Sites Deployed" },
-                    { value: "60+", label: "Countries" },
+                    { value: "2+", label: "Years Experience" },
+                    { value: "7+", label: "Projects" },
+                    { value: "30+", label: "Technologies" },
+                    { value: "5+", label: "AI Platforms Shipped" },
                   ].map((stat, index) => (
                     <motion.div
                       key={stat.label}
@@ -134,7 +135,7 @@ export function AboutContent() {
                 <div className="relative aspect-square rounded-2xl overflow-hidden bg-foreground/5 border border-foreground/10">
                   <Image
                     src="/profile_picture.jpg"
-                    alt={`Portrait of ${personalInfo.name} - Full Stack Developer`}
+                    alt={`Portrait of ${personalInfo.name} - Backend Developer & AI Engineer`}
                     fill
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"

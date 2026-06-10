@@ -43,7 +43,7 @@ const QUICK_LINKS = [
 
 export function Desktop() {
   const { personalInfo, highlights } = portfolioData;
-  const heroTechStack = ["React | Next.js", "Node.js | Python", "AWS | Azure", "AI", "Terraform", "Docker"];
+  const heroTechStack = ["Python | Django", "FastAPI | DRF", "PostgreSQL | Redis", "AI/LLM", "LangChain", "Docker"];
   const [windows, setWindows] = useState<WindowState[]>([]);
   const [activeWindow, setActiveWindow] = useState<WindowId | null>(null);
   const [highestZ, setHighestZ] = useState(45);
@@ -182,9 +182,9 @@ export function Desktop() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<{ id: WindowId; label: string; icon: string; keywords: string[] }[]>([]);
   const heroStats = [
-    { label: "Core Skills", value: "Full Stack" },
-    { label: "Experience", value: highlights.yearsExperience || "3+" },
-    { label: "Projects", value: highlights.projectsCompleted || "10+" },
+    { label: "Core Skills", value: "Backend & AI" },
+    { label: "Experience", value: highlights.yearsExperience || "2+" },
+    { label: "Projects", value: highlights.projectsCompleted || "7+" },
   ];
 
   // Focus search input when start menu opens
@@ -212,9 +212,9 @@ export function Desktop() {
     
     // Comprehensive search mapping
     const searchMap = [
-      { id: "about" as WindowId, label: "About Me", icon: "user", keywords: ["bio", "profile", "skills", "tech", "react", "next", "python", "aws"] },
-      { id: "projects" as WindowId, label: "Projects", icon: "folder", keywords: ["work", "portfolio", "apps", "code", "lumaya", "safety", "test"] },
-      { id: "experience" as WindowId, label: "Experience", icon: "briefcase", keywords: ["jobs", "history", "career", "hashlogics", "techling"] },
+      { id: "about" as WindowId, label: "About Me", icon: "user", keywords: ["bio", "profile", "skills", "tech", "python", "django", "ai", "rlhf"] },
+      { id: "projects" as WindowId, label: "Projects", icon: "folder", keywords: ["work", "portfolio", "apps", "code", "nutrimode", "intelliflow", "nexacommerce"] },
+      { id: "experience" as WindowId, label: "Experience", icon: "briefcase", keywords: ["jobs", "history", "career", "crymzee", "hubble42", "piecyfer"] },
       { id: "contact" as WindowId, label: "Contact", icon: "mail", keywords: ["email", "touch", "hire", "talk", "social", "phone"] },
     ];
 

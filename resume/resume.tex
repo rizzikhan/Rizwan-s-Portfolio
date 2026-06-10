@@ -1,0 +1,318 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Rizwan Ahmed} \\ \vspace{1pt}
+    Johar Town Lahore \\ \vspace{1pt}
+    \small  
+    \href{tel:+923008645286}{\raisebox{-0.1\height}{\underline{Phone: +923008645286}}} ~ \href{mailto:rizzikhan66@gmail.com}{\raisebox{-0.2\height}{\underline{Email: rizzikhan66@gmail.com}}} ~ \href{http://www.linkedin.com/in/rizwanahmed66}{\raisebox{-0.2\height}\ \underline{Linkedin}} ~ \href{https://portfolio-ef9a6.web.app/}{\raisebox{-0.2\height}\ \underline{My Portfolio}} ~ \href{https://github.com/rizzikhan}{\raisebox{-0.2\height}\ \underline{Github}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Khawaja Fareed University of Engineering and Technology, Rahim Yar Khan}{}
+      {Bachelor of Science in Computer Science}{Feb. 2020 -- Feb 2024}
+  \resumeSubHeadingListEnd
+
+%------RELEVANT COURSEWORK-------
+\section{Relevant Coursework}
+    %\resumeSubHeadingListStart
+        \begin{multicols}{4}
+            \begin{itemize}[itemsep=-5pt, parsep=3pt]
+                \item\small Data Structures
+                \item Software Methodology
+                \item Algorithms Analysis
+                \item Database Management
+                \item Problem Solving
+                \item Internet Technology
+                \item Computer Architecture
+            \end{itemize}
+        \end{multicols}
+        \vspace*{2.0\multicolsep}
+    %\resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+  
+\resumeSubheading
+    {\href{https://www.crymzee.com/}{CRYMZEE Networks}}{Aug 2025 -- Present }
+    {Python Django Developer | Backend and AI Engineer )}{Lahore, Punjab}
+
+    \resumeItemListStart
+        \resumeItem{Developed an AI-powered cross-platform nutrition and fitness app (Web, Android, iOS) with personalized meal and workout plans using OpenAI and DALL·E, integrating Google Meet for coaching and Stripe for subscriptions}
+        \resumeItem{Developed an AI-powered cross-platform Human Resource Management (HRM) platform (Web, Android, iOS) featuring employee performance evaluation, employer rating systems, dispute resolution workflows, and RBAC (Employee, Employer, Admin, Dispute Manager). Built secure REST APIs with JWT authentication, real-time communication using Django Channels, WebSockets, Redis, and Firebase, and integrated Stripe subscriptions, payments, and webhooks using Django and PostgreSQL.}
+        \resumeItem{Developed an AI-driven coupon aggregation platform that discovers, verifies, and delivers real-time working promo codes using OpenAI’s Web Search Function Calling with user-based validation and fingerprint-based tracking for logged and anonymous users}
+        \resumeItem{Engineered a scalable backend with Django, Celery, Redis, and PostgreSQL, enabling automated tasks and coupon verification via Cron Jobs, real-time notifications through Firebase, containerization with Docker, AWS deployment, and full REST API documentation via Swagger}
+        
+   
+    \resumeItemListEnd
+
+\resumeSubheading
+    {\href{https://hubble42.com}{Hubble42}}{Jan 2025 -- Aug 2025 }
+    {Python Django Developer | FastAPI, Flask | RLHF Specialist | Turing (Contractor)}{Lahore, Punjab}
+    \resumeItemListStart
+        \resumeItem{Contracted through Turing to provide RLHF training for leading AI companies, evaluating multiple large language models (e.g., GPT, Claude, Llama, Gemini) and improving AI alignment, safety, and performance through structured feedback}
+        
+        \resumeItem{Architected and developed IntelliFlow, a production-grade multi-tenant SaaS platform using Python with Django monolith, and designed real-time event streaming via Redis with asynchronous programming patterns}
+        
+        \resumeItem{Built dynamic AI-powered chatbot using Retrieval-Augmented Generation (RAG) and LangChain to enhance user interaction and customer support in IntelliFlow}
+    \resumeItemListEnd
+
+
+    \resumeSubheading
+     {\href{https://www.piecyfer.com/}{Piecyfer}}{Mar 2024 -- Jan 2025}
+     {Python Intern and Associate Software Engineer}{Lahore, Punjab}
+      \resumeItemListStart
+        \resumeItem{Developed a full-fledged e-commerce web application using Python and Django, implementing scalable backend architecture}
+        \resumeItem{Designed and implemented a dynamic AI-powered chatbot using Retrieval-Augmented Generation (RAG) and LangChain to enhance user interaction and customer support, and integrated Twilio for authentication and email processing of e-commerce orders.}
+        \resumeItem{Gained hands-on experience in deploying web applications and managing server-side operations.}
+        \resumeItem{Gained hands-on experience with Selenium for web scraping, enabling efficient data extraction and automation of web tasks to support dynamic content handling and data-driven solutions.}
+      \resumeItemListEnd
+
+      
+    % \resumeSubheading
+    %     {\href{https://www.mercurysols.org/}{Mercury Sols}}{Mar 2024 -- July 2024}
+    %     {Web Development Intern}{Rahimyar Khan, Punjab}
+    %   \resumeItemListStart
+    %     \resumeItem{Coordinated with back-end developers to ensure seamless integration of front-end and back-end functionalities.}
+    %     \resumeItem{Utilized HTML, CSS, and React to develop responsive web pages, improving site accessibility across devices}\\
+    % \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart 
+
+    \resumeProjectHeading
+    {\href{https://nutrimode.dev.crymzee.com/}{\textbf{Nutrimode – AI-Powered Nutrition \& Fitness Platform}} $|$ \emph{Python, Django, OpenAI, AWS}}{Sept 2025}
+\resumeItemListStart
+    \resumeItem{Developed a cross-platform AI-driven nutrition and fitness app (Web, Android, iOS) to help users manage health goals through personalized meal and exercise plans}
+    \resumeItem{Built interactive dashboards for tracking nutrition targets and integrated AI-based meal generation using OpenAI and DALL·E for visualization}
+    \resumeItem{Added virtual appointments via Google Meet, subscription plans with Stripe, and real-time notifications through Firebase}
+    \resumeItem{Implemented Celery with Redis for background tasks and Cron Jobs, deployed scalable system using Docker and AWS}
+\resumeItemListEnd
+\vspace{-13pt}
+
+\resumeProjectHeading
+    {\href{https://your-project-url.com}{\textbf{AI-Powered Human Resource Management (HRM) Platform}} $|$ \emph{Python, Django, OpenAI, PostgreSQL, Redis}}{Oct 2025}
+\resumeItemListStart
+    \resumeItem{Developed a cross-platform AI-powered HRM platform (Web, Android, iOS) enabling intelligent employee performance evaluation, employer ratings, and dispute management workflows}
+    \resumeItem{Implemented RBAC (Employee, Employer, Admin, Dispute Manager), secure REST APIs with JWT authentication, and scalable backend architecture using Django and PostgreSQL}
+    \resumeItem{Built real-time communication and notifications using Django Channels, WebSockets, Redis, and Firebase for seamless collaboration and dispute handling}
+    \resumeItem{Integrated Stripe subscriptions, payment processing, and webhook automation to manage billing, user plans, and recurring payments}
+\resumeItemListEnd
+\vspace{-13pt}
+
+
+\resumeProjectHeading
+    {\href{https://ai-coupon-finder.dev.crymzee.com/}{\textbf{AI Coupon Finder \& Promo Code Aggregator}} $|$ \emph{Python, Django, OpenAI Web  Tool Calling}}{Aug 2025 }
+\resumeItemListStart
+ \resumeItem{Developed an AI-powered coupon aggregation platform that discovers, verifies, and delivers real-time working promo codes using OpenAI’s Web Search Function Calling with user-based validation, rating system, and browser and device fingerprint-based tracking for both logged and anonymous users}
+\resumeItem{Built a scalable backend with Django REST Framework, PostgreSQL, Celery, and Redis for asynchronous automation, integrating Firebase for real-time updates, Docker and AWS for deployment, Cron Jobs for scheduled tasks, and Swagger for complete API documentation}
+
+\resumeItemListEnd
+\vspace{-13pt}
+
+\resumeProjectHeading
+    {\href{https://github.com/rizzikhan}{\textbf{IntelliFlow - AI-Powered Multi-Tenant SAAS Platform }} $|$ \emph{Python, Django}}{Mar 2025}
+\resumeItemListStart
+    \resumeItem{Architected production-grade multi-tenant SaaS platform using Python with Django monolith, with real-time event streaming via Redis and asynchronous programming patterns}
+    \resumeItem{Designed and implemented a dynamic AI-powered chatbot using Retrieval-Augmented Generation (RAG) and LangChain to enhance user interaction and customer support with real-time event streaming via Redis and asynchronous programming patterns}
+    \resumeItem{Built comprehensive API ecosystem with Django REST Framework, GraphQL APIs, WebSockets integration via Django Channels, and multi-tenant data isolation using PostgreSQL}
+    \resumeItem{Integrated comprehensive testing with pytest and enterprise-grade monitoring ensuring scalable multi-tenancy SaaS architecture with real-time analytics capabilities}
+\resumeItemListEnd
+\vspace{-13pt}
+
+
+     \resumeProjectHeading
+          {\href{https://github.com/rizzikhan/NexaCommerce}{\textbf{NexaCommerce Store}} $|$ \emph{Python, Django, JS, LangChain, Tailwind, REST APIs}}{Jan 2025}
+          \resumeItemListStart
+            \resumeItem{Built comprehensive e-commerce platform using Python, Django, REST APIs, and Stripe payment integration, featuring RAG-based AI chatbot with LangChain for real-time customer support and dynamic user interaction}
+            \resumeItem{Implemented multi-role system architecture with Admin, Merchant, and Consumer access levels, integrated Twilio for SMS authentication and email processing, enabling secure product listing, purchasing, and complete system management}
+          \resumeItemListEnd
+          \vspace{-13pt}
+          
+% \resumeProjectHeading
+%     {\href{https://github.com/rizzikhan}{\textbf{DailyHelper - Task Management and Reminder Application }} $|$ \emph{Python, Flask, FastAPI, Task Scheduling}}{Apr 2024}
+% \resumeItemListStart
+%     \resumeItem{Developed a task management and reminder application with Flask for user authentication and FastAPI for handling task-related APIs with asynchronous execution for real-time notifications}
+%     \resumeItem{Implemented a personalized task scheduler where users can set reminders for daily, weekly, and monthly tasks, utilizing FastAPI's high-performance features to ensure quick task retrieval and real-time notifications via WebSocket}
+%     \resumeItem{Created a Flask-based user authentication system to securely manage user accounts, with JWT-based token authentication and email verification for password recovery}
+%     \resumeItem{Integrated FastAPI with a SQLite database for efficient task and user data storage, ensuring quick and reliable data retrieval for user queries and reminders}
+%     \resumeItem{Designed a multi-platform notification system for sending task reminders via email, SMS, and mobile push notifications using third-party services like Twilio}
+\resumeItemListEnd
+\vspace{-13pt}
+
+          
+      \resumeProjectHeading
+            % {\href{https://github.com/rizzikhan}{\textbf{Machine Learning Chatbot FYP}} $|$ \emph{HTML, CSS Python, Flask, NLP}}{June 2023 -- Nov 2023}
+          % \resumeItemListStart
+          %   \resumeItem{Developed an AI Chat bot using NLP techniques to accurately process user queries and provide relevant answers from a predefined dataset.}
+          %   \resumeItem{Enhancing query understanding and response accuracy. Successfully deployed the chat bot with a user friendly interface, ensuring seamless interaction.}
+          % \resumeItemListEnd 
+          % \vspace{-02pt}
+        
+
+    % \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Programming Languages}{: Python, Java, C++, JavaScript, TypeScript, HTML/CSS} \\
+     \textbf{Backend Frameworks}{: Django, Flask, FastAPI, REST APIs} \\
+     \textbf{Frontend Technologies}{: HTML/CSS, JavaScript, TypeScript, Tailwind CSS} \\
+     \textbf{Databases}{: PostgreSQL, MySQL, SQLite, Redis} \\
+     \textbf{AI/ML Specialization}{: RLHF (Reinforcement Learning from Human Feedback), Model Evaluation, Prompt Engineering, AI Safety, LLM Fine-tuning, LangChain} \\
+     \textbf{LLM Platforms}{: OpenAI GPT, Anthropic Claude, Meta Llama, Google Gemini, Qwen, Cursor AI, Marsecode} \\
+     \textbf{Cloud \& DevOps}{: Docker, GitHub Actions, CI/CD Pipelines} \\
+     \textbf{Developer Tools}{: VS Code, Git, GitHub, Eclipse, Android Studio} \\
+     \textbf{Integration \& APIs}{: OpenAI Function Calling, Stripe Integration, Twilio SMS/Email, Firebase, Web Scraping, Ngrok} \\
+     \textbf{Project Management}{: Jira Board, Agile Methodologies} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+
+%-----------INVOLVEMENT---------------
+\section{Leadership / Extracurricular}
+    \resumeSubHeadingListStart
+        \resumeSubheading{Academic Achievements \& Professional Development}{Feb 2020 -- Oct 2021}{Khawaja Fareed University Of Engineering and Information Technology}{}
+            \resumeItemListStart
+                \resumeItem{Won "Best Debugger" award at KFUEIT by demonstrating superior problem-solving skills and debugging techniques, outperforming 100+ computer science students}
+                \resumeItem{Developed innovative chatbot prototype during Visiospark Hackathon at COMSATS University Islamabad, showcasing early AI and machine learning expertise}
+                \resumeItem{Completed AMAL Career-Prep Fellowship program, gaining professional development training in communication, leadership, and career advancement strategies}
+            \resumeItemListEnd
+        
+    \resumeSubHeadingListEnd
+
+
+\end{document}

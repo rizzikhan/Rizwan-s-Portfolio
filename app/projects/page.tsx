@@ -4,18 +4,18 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: `Explore projects by ${siteConfig.name}, including Forwood Safety, LexPair, Authenpush, Oxit, and an emotion-aware multilingual voice system built with Next.js, Python, AWS, Supabase, and AI tooling.`,
+  description: `Explore projects by ${siteConfig.name}, including Nutrimode, an AI-powered HRM platform, AI Coupon Finder, IntelliFlow, and NexaCommerce, built with Python, Django, PostgreSQL, AWS, and AI/LLM tooling.`,
   keywords: [
     `${siteConfig.name} Projects`,
-    "Forwood Safety",
-    "LexPair",
-    "Authenpush",
-    "Full Stack Developer Projects",
-    "Next.js Projects",
-    "Python AWS Projects",
+    "Nutrimode",
+    "IntelliFlow",
+    "NexaCommerce",
+    "Backend Developer Projects",
+    "Django Projects",
+    "Python AI Projects",
     "AI Projects Pakistan",
-    "Serverless Projects",
-    "Microservices Projects",
+    "RAG Chatbot Projects",
+    "Multi-Tenant SaaS Projects",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   alternates: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `${siteConfig.name} Projects`,
-    description: `Explore ${siteConfig.name}'s portfolio of production products, cloud systems, and AI-enabled applications.`,
+    description: `Explore ${siteConfig.name}'s portfolio of Django backends, AI-powered platforms, and LLM-integrated products.`,
     url: absoluteUrl("/projects"),
     type: "website",
     images: [siteConfig.ogImage],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} Projects`,
-    description: `Browse ${siteConfig.name}'s work across full-stack apps, cloud platforms, and AI-powered solutions.`,
+    description: `Browse ${siteConfig.name}'s work across Python/Django apps, AI platforms, and LLM-powered solutions.`,
     images: [siteConfig.ogImage],
   },
 };

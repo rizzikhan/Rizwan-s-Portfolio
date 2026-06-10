@@ -4,14 +4,14 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${siteConfig.name}, ${siteConfig.role} based in ${siteConfig.location}. Available for full-stack, cloud, and AI-focused projects. Email: ${siteConfig.email}.`,
+  description: `Contact ${siteConfig.name}, ${siteConfig.role} based in ${siteConfig.location}. Available for backend, AI/LLM, and Django-focused projects. Email: ${siteConfig.email}.`,
   keywords: [
     `Contact ${siteConfig.name}`,
-    "Hire Full Stack Developer",
-    "Hire Next.js Developer",
     "Hire Python Developer",
-    "Hire AWS Developer",
+    "Hire Django Developer",
+    "Hire Backend Developer",
     "Hire AI Engineer",
+    "Hire RLHF Specialist",
     "Software Engineer for Hire",
     "Freelance Developer Pakistan",
     `Hire ${siteConfig.role}`,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `Contact ${siteConfig.name}`,
-    description: `Get in touch with ${siteConfig.name} for web, cloud, and AI-focused development work.`,
+    description: `Get in touch with ${siteConfig.name} for backend, AI/LLM, and Django-focused development work.`,
     url: absoluteUrl("/contact"),
     type: "website",
     images: [siteConfig.ogImage],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `Contact ${siteConfig.name}`,
-    description: `Reach ${siteConfig.name} for full-stack, cloud, and AI collaboration.`,
+    description: `Reach ${siteConfig.name} for Python/Django backend and AI collaboration.`,
     images: [siteConfig.ogImage],
   },
 };

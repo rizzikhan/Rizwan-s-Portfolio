@@ -1,280 +1,275 @@
 {
   "personalInfo": {
-    "name": "Faizan Ahmed",
-    "role": "Full Stack Developer",
-    "description": "Full Stack Developer with 4+ years of experience in JavaScript (React, Next.js, Node.js), Python, and cloud services (AWS, Azure). Specialized in microservices, real-time data pipelines, and infrastructure automation with Terraform. Strong communicator and team player with proven success delivering scalable, secure, and high-performance systems.",
+    "name": "Rizwan Ahmed",
+    "role": "Backend Developer & AI Engineer",
+    "description": "Backend Developer & AI Engineer with 2+ years of experience building production-grade Python/Django platforms and AI-powered products. Specialized in REST APIs, LLM integrations (OpenAI, LangChain, RAG), and RLHF-based model evaluation for leading AI labs. Experienced with real-time systems using Django Channels, Celery, and Redis, multi-tenant SaaS architecture, and cloud deployment with Docker and AWS. Strong communicator with a track record of shipping cross-platform AI products end-to-end.",
     "availability": "Available for new projects",
     "location": "Lahore, Pakistan",
-    "phone": "+92-306-6764052",
-    "email": "raofaizan09@gmail.com",
+    "phone": "+92-300-8645286",
+    "email": "rizzikhan66@gmail.com",
     "portfolio": ""
   },
   "socialLinks": {
-    "github": "https://github.com/faizanahmed09",
-    "linkedin": "https://www.linkedin.com/in/faizan-ahmed09/",
+    "github": "https://github.com/rizzikhan",
+    "linkedin": "http://www.linkedin.com/in/rizwanahmed66",
     "portfolio": ""
   },
   "skills": {
     "frontend": [
-      "React",
-      "Next.js",
-      "Bootstrap",
-      "HTML5/CSS3",
+      "HTML/CSS",
       "JavaScript",
       "TypeScript",
-      "Zustand",
-      "React Query"
+      "Tailwind CSS"
     ],
     "backend": [
-      "Supabase",
-      "Node.js",
-      "NestJS",
-      "Express",
       "Python",
+      "Django",
+      "Django REST Framework",
       "FastAPI",
-      "RESTful APIs",
-      "Microservices",
-      "GraphQL"
+      "Flask",
+      "Django Channels",
+      "Celery",
+      "GraphQL",
+      "REST APIs"
     ],
     "database": [
-      "MySQL",
       "PostgreSQL",
-      "Sequelize",
-      "Redis",
-      "MongoDB",
-      "SQL Server",
-      "AWS RDS",
-      "DynamoDB"
+      "MySQL",
+      "SQLite",
+      "Redis"
     ],
     "cloudDevOps": [
-      "AWS S3",
-      "AWS Lambda",
-      "AWS API Gateway",
-      "AWS Route53",
-      "AWS CloudFront",
-      "AWS CloudWatch",
-      "AWS EC2",
-      "AWS RDS",
-      "AWS DynamoDB",
-      "AWS Kinesis",
-      "AWS SQS",
-      "AWS LightSail",
-      "Azure",
-      "Jenkins",
+      "AWS",
       "Docker",
-      "Microservices",
-      "Terraform"
+      "GitHub Actions",
+      "CI/CD Pipelines",
+      "Ngrok"
     ],
     "integration": [
-      "Stripe",
-      "Deepgram API",
-      "OpenSmile",
-      "DeepL API",
-      "ElevenLabs API",
-      "Microsoft Authenticator",
-      "OAuth",
-      "Google OAuth",
-      "Microsoft OAuth"
+      "OpenAI Function Calling",
+      "Stripe Integration",
+      "Twilio SMS/Email",
+      "Firebase",
+      "Web Scraping (Selenium)",
+      "WebSockets",
+      "Swagger/OpenAPI"
     ],
     "aiMl": [
-      "OpenSmile",
-      "Deepgram API",
-      "DeepL API",
-      "ElevenLabs API"
+      "RLHF (Reinforcement Learning from Human Feedback)",
+      "LangChain",
+      "Retrieval-Augmented Generation (RAG)",
+      "Prompt Engineering",
+      "LLM Fine-tuning",
+      "AI Safety & Model Evaluation",
+      "OpenAI GPT",
+      "Anthropic Claude",
+      "Meta Llama",
+      "Google Gemini",
+      "Qwen",
+      "DALL·E"
     ],
     "testing": [
-      "Jest",
-      "Python Unit Testing",
-      "Testing/QA"
+      "Pytest",
+      "Unit Testing"
     ],
     "tools": [
-      "AWS",
-      "Azure",
-      "Terraform",
-      "Jest",
-      "Heroku"
+      "VS Code",
+      "Git",
+      "GitHub",
+      "Eclipse",
+      "Android Studio",
+      "Cursor AI",
+      "Marsecode"
     ],
     "languages": [
+      "Python",
+      "Java",
+      "C++",
       "JavaScript",
       "TypeScript",
-      "Python",
       "SQL"
     ],
     "methodologies": [
+      "Agile Methodologies",
+      "Jira",
       "Microservices",
-      "Real-time Data Pipelines",
-      "Infrastructure Automation",
-      "RESTful APIs",
-      "Micro-frontends"
+      "Multi-Tenant SaaS Architecture",
+      "RBAC (Role-Based Access Control)"
     ]
   },
   "experience": [
     {
-      "position": "Senior Software Engineer",
-      "company": "Hashlogics",
+      "position": "Python Django Developer | Backend & AI Engineer",
+      "company": "CRYMZEE Networks",
       "location": "Lahore, Pakistan",
-      "duration": "Sep 2022 - Present",
+      "duration": "Aug 2025 - Present",
       "projects": [
         {
-          "name": "Forwood Safety",
-          "duration": "Sep 2022 - Present",
-          "url": "https://forwoodsafety.com",
-          "description": "Designed and delivered a microservices architecture using Python and React, supporting scalable web applications.",
+          "name": "Nutrimode – AI-Powered Nutrition & Fitness Platform",
+          "duration": "Sept 2025",
+          "url": "https://nutrimode.dev.crymzee.com/",
+          "description": "Cross-platform AI-driven nutrition and fitness app (Web, Android, iOS) helping users manage health goals through personalized meal and exercise plans.",
           "achievements": [
-            "Designed and delivered a microservices architecture using Python and React, supporting scalable web applications",
-            "Automated infrastructure with Terraform to deploy AWS Lambda, API Gateway, and CloudWatch, streamlining operations",
-            "Configured Route53 and CloudFront for optimized DNS and content delivery, enhancing global performance",
-            "Managed data with AWS RDS and DynamoDB for high availability and scalability",
-            "Developed caching with S3 to minimize latency and speed up data access",
-            "Implemented Kinesis streams for real-time microservices data processing, increasing system responsiveness",
-            "Established a shared Lambda repository to centralize reusable code, boosting maintainability",
-            "Orchestrated batch workflows with SQS using custom dispatcher and consumer Lambdas",
-            "Led a micro-frontend strategy with React, enabling independent deployment and scaling of UI modules",
-            "Engineered Jest test suites for React components and Python unit tests, ensuring robust microservices reliability"
+            "Developed a cross-platform AI-driven nutrition and fitness app (Web, Android, iOS) to help users manage health goals through personalized meal and exercise plans",
+            "Built interactive dashboards for tracking nutrition targets and integrated AI-based meal generation using OpenAI and DALL·E for visualization",
+            "Added virtual appointments via Google Meet, subscription plans with Stripe, and real-time notifications through Firebase",
+            "Implemented Celery with Redis for background tasks and Cron Jobs, deployed scalable system using Docker and AWS"
           ],
           "technologies": [
             "Python",
-            "React",
-            "Terraform",
+            "Django",
+            "OpenAI",
+            "DALL·E",
+            "Celery",
+            "Redis",
+            "Docker",
             "AWS",
-            "Jest"
+            "Stripe",
+            "Firebase"
           ]
         },
         {
-          "name": "LexPair",
-          "duration": "Sep 2022 - Present",
-          "url": "https://www.lexpair.com/",
-          "description": "Built a legal matching platform that collects client case details and attorney practice, territory, and tier data, auto-assigning leads based on profile and subscription.",
+          "name": "AI-Powered Human Resource Management (HRM) Platform",
+          "duration": "Oct 2025",
+          "url": "",
+          "description": "Cross-platform AI-powered HRM platform (Web, Android, iOS) enabling intelligent employee performance evaluation, employer ratings, and dispute management workflows.",
           "achievements": [
-            "Built a legal matching platform that collects client case details and attorney practice, territory, and tier data, auto-assigning leads based on profile and subscription",
-            "Implemented multi-role authentication for Client, Attorney, and Admin users with OTP verification, Google and Microsoft OAuth, role-based routing, and protected dashboards",
-            "Managed full lead lifecycle from Draft to Submitted to Claimed to Contacted to Retained or Closed with tier-based visibility for Gold, Silver, and Bronze plans",
-            "Developed attorney onboarding, lead management, and admin CMS modules for blogs, FAQs, case studies, and testimonials"
+            "Developed a cross-platform AI-powered HRM platform (Web, Android, iOS) enabling intelligent employee performance evaluation, employer ratings, and dispute management workflows",
+            "Implemented RBAC (Employee, Employer, Admin, Dispute Manager), secure REST APIs with JWT authentication, and scalable backend architecture using Django and PostgreSQL",
+            "Built real-time communication and notifications using Django Channels, WebSockets, Redis, and Firebase for seamless collaboration and dispute handling",
+            "Integrated Stripe subscriptions, payment processing, and webhook automation to manage billing, user plans, and recurring payments"
           ],
           "technologies": [
-            "React",
-            "TypeScript",
-            "Supabase",
-            "Stripe"
-          ]
-        },
-        {
-          "name": "Emotion-Aware Multilingual Voice Processing System",
-          "duration": "Sep 2022 - Present",
-          "url": "https://fe-ai-text-and-speech.vercel.app/",
-          "description": "Designed and developed an end-to-end voice processing system that records audio, detects emotional tone, converts speech to text, translates content, and generates emotionally adaptive text-to-speech output.",
-          "achievements": [
-            "Designed and developed an end-to-end voice processing system that records audio, detects emotional tone, converts speech to text, translates content between English and Spanish, and generates emotionally adaptive text-to-speech output",
-            "Built a multi-stage pipeline integrating Deepgram API for speech-to-text transcription and automatic language detection",
-            "Utilized OpenSmile to detect emotional characteristics from audio input",
-            "Implemented DeepL API for accurate bidirectional translation between English and Spanish",
-            "Integrated ElevenLabs API to generate emotion-preserving text-to-speech output with mapped voice parameters",
-            "Developed RESTful APIs to orchestrate service communication with structured error handling and fault tolerance"
-          ],
-          "technologies": [
-            "FastAPI",
-            "Next.js",
-            "Deepgram API",
-            "OpenSmile",
-            "DeepL API",
-            "ElevenLabs API"
-          ]
-        },
-        {
-          "name": "Authenpush",
-          "duration": "Sep 2022 - Present",
-          "url": "https://www.authenpush.com/",
-          "description": "Built a secure identity verification platform using Next.js and Supabase, enabling seamless integration with Microsoft Authenticator for improved user authentication.",
-          "achievements": [
-            "Built a secure identity verification platform using Next.js and Supabase, enabling seamless integration with Microsoft Authenticator for improved user authentication",
-            "Designed and implemented RESTful APIs to support communication between frontend applications, Azure cloud services, and identity workflows",
-            "Managed real-time database operations and authentication via Supabase, maintaining data integrity and compliance",
-            "Deployed scalable infrastructure on Azure and developed responsive UI components for consistent cross-device experiences"
-          ],
-          "technologies": [
-            "Next.js",
-            "Supabase",
-            "Microsoft Azure"
-          ]
-        },
-        {
-          "name": "Oxit",
-          "duration": "Sep 2022 - Present",
-          "url": "https://oxit.com/",
-          "description": "Developed backend APIs for an IoT solution using Node.js, enhancing connectivity between devices and the cloud.",
-          "achievements": [
-            "Developed backend APIs for an IoT solution using Node.js, enhancing connectivity between devices and the cloud",
-            "Integrated IoT protocols including MQTT and WebSockets to boost reliability and real-time interactions",
-            "Collaborated with frontend and DevOps teams to ensure backend scalability and security",
-            "Delivered a robust IoT platform that supported project success"
-          ],
-          "technologies": [
-            "Node.js",
+            "Python",
+            "Django",
             "PostgreSQL",
-            "MQTT",
-            "WebSockets"
+            "Django Channels",
+            "WebSockets",
+            "Redis",
+            "JWT",
+            "Stripe",
+            "Firebase"
+          ]
+        },
+        {
+          "name": "AI Coupon Finder & Promo Code Aggregator",
+          "duration": "Aug 2025",
+          "url": "https://ai-coupon-finder.dev.crymzee.com/",
+          "description": "AI-powered coupon aggregation platform that discovers, verifies, and delivers real-time working promo codes.",
+          "achievements": [
+            "Developed an AI-powered coupon aggregation platform that discovers, verifies, and delivers real-time working promo codes using OpenAI's Web Search Function Calling, with user-based validation, a rating system, and browser/device fingerprint-based tracking for logged and anonymous users",
+            "Built a scalable backend with Django REST Framework, PostgreSQL, Celery, and Redis for asynchronous automation",
+            "Integrated Firebase for real-time updates, Docker and AWS for deployment, and Cron Jobs for scheduled tasks",
+            "Documented the complete API with Swagger for easy integration and testing"
+          ],
+          "technologies": [
+            "Python",
+            "Django REST Framework",
+            "PostgreSQL",
+            "Celery",
+            "Redis",
+            "OpenAI",
+            "Docker",
+            "AWS",
+            "Swagger"
           ]
         }
       ]
     },
     {
-      "position": "Software Engineer",
-      "company": "Mercury Sols",
-      "location": "Rahim Yar Khan, Pakistan",
-      "duration": "Apr 2020 - Aug 2021",
+      "position": "Python Django Developer | RLHF Specialist (Contractor via Turing)",
+      "company": "Hubble42",
+      "location": "Lahore, Pakistan",
+      "duration": "Jan 2025 - Aug 2025",
       "projects": [
         {
-          "name": "Med Opinion",
-          "duration": "Apr 2020 - Aug 2021",
-          "url": "https://med-opinion-frontend.herokuapp.com/",
-          "description": "Developed a complete medical consultation backend using NestJS with robust authentication.",
+          "name": "RLHF Training & LLM Evaluation",
+          "duration": "Jan 2025 - Aug 2025",
+          "url": "",
+          "description": "Contracted through Turing to provide RLHF training for leading AI companies, evaluating large language models to improve alignment, safety, and performance.",
           "achievements": [
-            "Developed a complete medical consultation backend using NestJS with robust authentication",
-            "Integrated APIs to connect the React.js frontend for seamless user interactions",
-            "Deployed the platform on Heroku"
+            "Provided RLHF training for leading AI companies, evaluating multiple large language models (GPT, Claude, Llama, Gemini) and improving AI alignment, safety, and performance through structured feedback"
           ],
           "technologies": [
-            "NestJS",
-            "React.js"
+            "RLHF",
+            "Prompt Engineering",
+            "Model Evaluation",
+            "AI Safety",
+            "GPT",
+            "Claude",
+            "Llama",
+            "Gemini"
           ]
         },
         {
-          "name": "Galae Health",
-          "duration": "Apr 2020 - Aug 2021",
-          "url": "https://galeahealth.com/",
-          "description": "Built profile pages and implemented filtering for service providers by location, price, and specialization.",
+          "name": "IntelliFlow - AI-Powered Multi-Tenant SaaS Platform",
+          "duration": "Mar 2025",
+          "url": "https://github.com/rizzikhan",
+          "description": "Production-grade multi-tenant SaaS platform with real-time event streaming and an AI-powered RAG chatbot.",
           "achievements": [
-            "Built profile pages and implemented filtering for service providers by location, price, and specialization",
-            "Connected the React.js frontend with APIs to deliver real-time health data updates"
+            "Architected a production-grade multi-tenant SaaS platform using Python with a Django monolith, with real-time event streaming via Redis and asynchronous programming patterns",
+            "Designed and implemented a dynamic AI-powered chatbot using Retrieval-Augmented Generation (RAG) and LangChain to enhance user interaction and customer support",
+            "Built a comprehensive API ecosystem with Django REST Framework, GraphQL APIs, and WebSockets integration via Django Channels, with multi-tenant data isolation using PostgreSQL",
+            "Integrated comprehensive testing with pytest and enterprise-grade monitoring for scalable multi-tenancy SaaS architecture with real-time analytics capabilities"
           ],
           "technologies": [
-            "React.js"
+            "Python",
+            "Django",
+            "Redis",
+            "LangChain",
+            "RAG",
+            "GraphQL",
+            "Django Channels",
+            "PostgreSQL",
+            "pytest"
+          ]
+        }
+      ]
+    },
+    {
+      "position": "Python Intern & Associate Software Engineer",
+      "company": "Piecyfer",
+      "location": "Lahore, Pakistan",
+      "duration": "Mar 2024 - Jan 2025",
+      "projects": [
+        {
+          "name": "NexaCommerce Store",
+          "duration": "Jan 2025",
+          "url": "https://github.com/rizzikhan/NexaCommerce",
+          "description": "Comprehensive e-commerce platform with a RAG-based AI chatbot and multi-role access system.",
+          "achievements": [
+            "Built a comprehensive e-commerce platform using Python, Django, REST APIs, and Stripe payment integration, featuring a RAG-based AI chatbot with LangChain for real-time customer support and dynamic user interaction",
+            "Implemented a multi-role system architecture with Admin, Merchant, and Consumer access levels, integrated Twilio for SMS authentication and email processing, enabling secure product listing, purchasing, and complete system management"
+          ],
+          "technologies": [
+            "Python",
+            "Django",
+            "JavaScript",
+            "LangChain",
+            "Tailwind CSS",
+            "REST APIs",
+            "Stripe",
+            "Twilio"
           ]
         },
         {
-          "name": "IFancy",
-          "duration": "Apr 2020 - Aug 2021",
-          "description": "Developed backend APIs for an e-commerce platform focused on watches using Express.js.",
+          "name": "E-Commerce Platform & RAG Chatbot",
+          "duration": "Mar 2024 - Jan 2025",
+          "url": "https://www.piecyfer.com/",
+          "description": "Full-fledged e-commerce web application with an AI-powered RAG chatbot for customer support.",
           "achievements": [
-            "Developed backend APIs for an e-commerce platform focused on watches using Express.js",
-            "Coordinated with frontend teams for smooth integration"
+            "Developed a full-fledged e-commerce web application using Python and Django, implementing a scalable backend architecture",
+            "Designed and implemented a dynamic AI-powered chatbot using Retrieval-Augmented Generation (RAG) and LangChain to enhance user interaction and customer support, and integrated Twilio for authentication and email processing of e-commerce orders",
+            "Gained hands-on experience deploying web applications and managing server-side operations",
+            "Gained hands-on experience with Selenium for web scraping, enabling efficient data extraction and automation of web tasks"
           ],
           "technologies": [
-            "Express.js",
-            "React.js"
-          ]
-        },
-        {
-          "name": "Trade4U",
-          "duration": "Apr 2020 - Aug 2021",
-          "url": "https://www.trade4u.io/",
-          "description": "Designed intuitive frontend pages for a crypto trading platform.",
-          "achievements": [
-            "Designed intuitive frontend pages for a crypto trading platform",
-            "Integrated APIs for live data and user interaction"
-          ],
-          "technologies": [
-            "React.js"
+            "Python",
+            "Django",
+            "LangChain",
+            "RAG",
+            "Twilio",
+            "Selenium"
           ]
         }
       ]
@@ -289,82 +284,44 @@
         "Communication",
         "Leadership",
         "Problem-Solving",
-        "Teamwork"
-      ]
-    },
-    {
-      "name": "Web Development + Freelancing",
-      "issuer": "E-Rozgar Program",
-      "issueDate": "2020",
-      "skills": [
-        "Web Development",
-        "Freelancing"
-      ]
-    },
-    {
-      "name": "Cisco Certified Networking Associate (CCNA)",
-      "issuer": "Corvit Systems",
-      "issueDate": "2018",
-      "skills": [
-        "Networking",
-        "Cisco",
-        "CCNA"
+        "Career Advancement"
       ]
     }
   ],
   "freelanceProjects": [],
   "awards": [
     {
-      "title": "Volunteering Social Enthusiast Award",
-      "organization": "Hashlogics",
-      "year": "2022",
-      "description": "Recognized for leadership in organizing and managing social activities, including overseeing events such as monthly dinners, sports activities, and daily operational tasks as the head of the social committee."
-    },
-    {
-      "title": "2 x Employee of the Month",
-      "organization": "Hashlogics",
-      "year": "January, July",
-      "description": ""
-    },
-    {
-      "title": "Circle of Excellence",
-      "organization": "Mercury Sols",
+      "title": "Best Debugger Award",
+      "organization": "KFUEIT",
       "year": "2021",
-      "description": ""
+      "description": "Won the \"Best Debugger\" award at KFUEIT by demonstrating superior problem-solving skills and debugging techniques, outperforming 100+ computer science students"
     },
     {
-      "title": "Web Development + Freelancing",
-      "organization": "E-Rozgar Program",
-      "year": "2020",
-      "description": ""
+      "title": "Visiospark Hackathon - Chatbot Prototype",
+      "organization": "COMSATS University Islamabad",
+      "year": "2021",
+      "description": "Developed an innovative chatbot prototype during the Visiospark Hackathon, showcasing early AI and machine learning expertise"
     },
     {
-      "title": "Cisco Certified Networking Associate (CCNA)",
-      "organization": "Corvit Systems",
-      "year": "2018",
-      "description": ""
+      "title": "AMAL Career-Prep Fellowship",
+      "organization": "Amal Academy (Stanford-funded)",
+      "year": "2021",
+      "description": "Completed the AMAL Career-Prep Fellowship program, gaining professional development training in communication, leadership, and career advancement strategies"
     }
   ],
   "education": [
     {
-      "degree": "Bachelor of Computer Science",
-      "institution": "KFUEIT",
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "Khawaja Fareed University of Engineering and Technology (KFUEIT)",
       "location": "Rahim Yar Khan, Pakistan",
-      "duration": "",
-      "status": "Graduated: 2020"
-    },
-    {
-      "degree": "AMAL - Career-Prep Fellowship",
-      "institution": "Amal Academy (Stanford-funded)",
-      "location": "Lahore, Pakistan",
-      "duration": "2021",
-      "status": "Completed",
-      "details": "Dedicated 150 hours to developing key professional skills in communication, leadership, problem-solving, and teamwork."
+      "duration": "Feb 2020 - Feb 2024",
+      "status": "Graduated: 2024",
+      "details": "Relevant coursework: Data Structures, Algorithms Analysis, Software Methodology, Database Management, Problem Solving, Internet Technology, Computer Architecture"
     }
   ],
   "highlights": {
-    "yearsExperience": "4+",
-    "projectsCompleted": "9+",
+    "yearsExperience": "2+",
+    "projectsCompleted": "7+",
     "technologies": "30+",
     "sites": "5+"
   }

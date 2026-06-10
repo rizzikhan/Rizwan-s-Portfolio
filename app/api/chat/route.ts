@@ -104,8 +104,8 @@ Key Information:
 - LinkedIn: ${socialLinks.linkedin}
 - GitHub: ${socialLinks.github}
 
-Current Company: ${experience[0]?.company || 'Hashlogics'}
-Experience: ${personalInfo.name} has ${highlights?.yearsExperience || '4+'} years of experience.
+Current Company: ${experience[0]?.company || 'CRYMZEE Networks'}
+Experience: ${personalInfo.name} has ${highlights?.yearsExperience || '2+'} years of experience.
 
 Guidelines:
 1. Be friendly, professional, and conversational

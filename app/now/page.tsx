@@ -4,15 +4,15 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Now",
-  description: `What ${siteConfig.name} is focused on now: building production systems at ${siteConfig.currentCompany}, sharpening cloud and automation skills, and exploring AI-enabled product experiences.`,
+  description: `What ${siteConfig.name} is focused on now: building AI-powered Django platforms at ${siteConfig.currentCompany}, sharpening LLM/RLHF skills, and shipping AI-enabled product experiences.`,
   keywords: [
     `${siteConfig.name} Now`,
     "What I'm doing now",
     "Current Projects",
-    "Learning Full Stack",
-    "Hashlogics Work",
-    "AWS Learning",
-    "Terraform Projects",
+    "Learning AI Engineering",
+    "CRYMZEE Networks Work",
+    "RLHF Learning",
+    "LangChain Projects",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
   alternates: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} Now`,
-    description: `See what ${siteConfig.name} is working on now across engineering, cloud, and AI.`,
+    description: `See what ${siteConfig.name} is working on now across Django backends, AI/LLM products, and RLHF.`,
     images: [siteConfig.ogImage],
   },
 };
@@ -37,9 +37,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: `What ${siteConfig.name} Is Doing Now`,
-  description: `Current activities and priorities from ${siteConfig.name} across product engineering, cloud systems, and AI-enabled work.`,
-  datePublished: "2026-05-18",
-  dateModified: "2026-05-18",
+  description: `Current activities and priorities from ${siteConfig.name} across Django backend engineering, AI/LLM products, and RLHF model evaluation.`,
+  datePublished: "2026-06-11",
+  dateModified: "2026-06-11",
   author: {
     "@type": "Person",
     name: siteConfig.name,

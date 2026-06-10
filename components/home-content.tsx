@@ -105,8 +105,8 @@ export function HomeContent() {
                     {personalInfo.name}
                   </span>
                   , a {personalInfo.role.split("|")[0].trim()} based in{" "}
-                  {personalInfo.location}. I specialize in building scalable web
-                  applications and AI-powered solutions.
+                  {personalInfo.location}. I specialize in building scalable
+                  Django backends and AI-powered solutions.
                 </p>
 
                 {/* What I Do */}
@@ -117,16 +117,16 @@ export function HomeContent() {
                   <div className="grid gap-3">
                     {[
                       {
-                        title: "Full Stack Development",
-                        desc: "Next.js, React, Python, Node.js",
+                        title: "Backend Development",
+                        desc: "Python, Django, DRF, FastAPI",
                       },
                       {
-                        title: "Cloud Architecture",
-                        desc: "AWS serverless, Terraform, microservices",
+                        title: "Database & Infrastructure",
+                        desc: "PostgreSQL, Redis, Docker, AWS",
                       },
                       {
                         title: "AI Integration",
-                        desc: "LangChain, OpenAI, LLM workflows",
+                        desc: "LangChain, OpenAI, RAG, RLHF",
                       },
                     ].map((item) => (
                       <div

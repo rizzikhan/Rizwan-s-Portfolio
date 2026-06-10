@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `${siteConfig.name} - ${siteConfig.role} | Next.js • React • Node.js • AWS`,
+    default: `${siteConfig.name} - ${siteConfig.role} | Python • Django • AI/LLM • AWS`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     alternateLocale: ["es_ES", "fr_FR"],
     url: siteConfig.siteUrl,
     siteName: siteConfig.siteName,
-    title: `${siteConfig.name} - ${siteConfig.role} | Next.js • React • Node.js • AWS`,
+    title: `${siteConfig.name} - ${siteConfig.role} | Python • Django • AI/LLM • AWS`,
     description: siteConfig.description,
     images: [
       {
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} - ${siteConfig.role} | Next.js • React • Node.js • AWS`,
+    title: `${siteConfig.name} - ${siteConfig.role} | Python • Django • AI/LLM • AWS`,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },

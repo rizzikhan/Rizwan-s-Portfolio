@@ -17,7 +17,7 @@ interface DownloadResumeButtonProps {
 
 export function DownloadResumeButton({
   resumeUrl = "/resume.pdf",
-  fileName = "Ali_Burhan_Resume.pdf",
+  fileName = "Rizwan_Ahmed_Resume.pdf",
   variant = "primary",
   size = "md",
   className = "",
@@ -173,7 +173,7 @@ export function DownloadResumeButton({
 // Additional variant: Floating Action Button
 export function DownloadResumeFAB({
   resumeUrl = "/resume.pdf",
-  fileName = "Ali_Burhan_Resume.pdf",
+  fileName = "Rizwan_Ahmed_Resume.pdf",
   position = "bottom-right",
 }: {
   resumeUrl?: string;

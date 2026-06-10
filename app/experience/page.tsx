@@ -4,15 +4,16 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: `Explore ${siteConfig.name}'s experience across ${siteConfig.currentCompany}, Mercury Sols, and production projects spanning microservices, cloud architecture, real-time systems, and full-stack product development.`,
+  description: `Explore ${siteConfig.name}'s experience across ${siteConfig.currentCompany}, Hubble42, Piecyfer, and production projects spanning Django backends, AI/LLM integrations, RLHF model evaluation, and real-time systems.`,
   keywords: [
     `${siteConfig.name} Experience`,
-    "Hashlogics Software Engineer",
-    "Mercury Sols Software Engineer",
-    "Full Stack Developer Experience",
-    "AWS Developer Experience",
+    "CRYMZEE Networks Backend Engineer",
+    "Hubble42 Python Developer",
+    "Backend Developer Experience",
+    "Django Developer Experience",
+    "AI Engineer Experience",
     "Python Developer Experience",
-    "Next.js Developer Experience",
+    "RLHF Specialist Experience",
     "Software Engineer Pakistan",
     "Work Experience Lahore",
   ],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `${siteConfig.name} Experience`,
-    description: `Professional experience from ${siteConfig.name} across full-stack engineering, cloud systems, and scalable application delivery.`,
+    description: `Professional experience from ${siteConfig.name} across Django backend engineering, AI/LLM integrations, and RLHF model evaluation.`,
     url: absoluteUrl("/experience"),
     type: "website",
     images: [siteConfig.ogImage],
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} Experience`,
-    description: `See ${siteConfig.name}'s work across microservices, cloud infrastructure, and modern web product development.`,
+    description: `See ${siteConfig.name}'s work across Python/Django backends, AI-powered products, and real-time systems.`,
     images: [siteConfig.ogImage],
   },
 };

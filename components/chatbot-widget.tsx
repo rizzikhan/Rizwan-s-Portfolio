@@ -18,7 +18,7 @@ interface Message {
 type RecorderState = 'idle' | 'requesting_permission' | 'recording' | 'transcribing' | 'error'
 
 const SUGGESTED_QUESTIONS = [
-  'What is your experience with AWS?',
+  'What is your experience with Django and AI?',
   'Tell me about your projects',
   'What skills do you have?',
   'How can I contact you?',
