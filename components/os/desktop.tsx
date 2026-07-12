@@ -319,7 +319,7 @@ export function Desktop() {
               >
                 <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '50%', backgroundColor: '#0f172a', border: '4px solid #1e293b', overflow: 'hidden' }}>
                   <Image
-                    src="/profile_picture.jpg"
+                    src="/profile_picture.png"
                     alt={personalInfo.name}
                     fill
                     sizes={isMobile ? "80px" : "140px"}

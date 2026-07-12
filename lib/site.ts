@@ -23,7 +23,7 @@ export const siteConfig = {
   githubUrl: socialLinks.github,
   linkedinUrl: socialLinks.linkedin,
   ogImage: "/og-image.png",
-  profileImage: "/profile_picture.jpg",
+  profileImage: "/profile_picture.png",
   currentCompany:
     Array.isArray(experience) && experience.length > 0
       ? experience[0]?.company || ""

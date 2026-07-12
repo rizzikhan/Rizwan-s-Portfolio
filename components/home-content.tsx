@@ -198,7 +198,7 @@ export function HomeContent() {
               <div className="relative aspect-square w-full max-w-[380px] mx-auto">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-foreground/10 bg-foreground/5">
                   <Image
-                    src="/profile_picture.jpg"
+                    src="/profile_picture.png"
                     alt={personalInfo.name}
                     width={380}
                     height={380}

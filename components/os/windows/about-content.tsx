@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import portfolioData from "@/data/portfolio.json";
-import profilePicture from "@/public/profile_picture.jpg";
+import profilePicture from "@/public/profile_picture.png";
 
 export function AboutContent() {
   const { personalInfo, skills, certificates } = portfolioData;
