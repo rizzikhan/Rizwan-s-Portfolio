@@ -87,7 +87,7 @@ curl http://localhost:3000/api/embed
 3. Click the floating chat button in the bottom-right corner
 
 4. Try asking questions like:
-   - "What is your experience with AWS?"
+   - "What is your experience with Django and AI?"
    - "Tell me about your projects"
    - "What skills do you have?"
    - "How can I contact you?"

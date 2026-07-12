@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(request: NextRequest) {
   // Initialize Resend with API key (lazy initialization to avoid build errors)
@@ -23,6 +24,27 @@ export async function POST(request: NextRequest) {
         { error: "Invalid email address" },
         { status: 400 }
       );
+    }
+
+    // Store the contact submission in database
+    const { data: submission, error: dbError } = await supabaseAdmin
+      .from('contact_submissions')
+      .insert({
+        name,
+        email,
+        subject: subject || 'General Inquiry',
+        message,
+        ip_address: request.headers.get('x-forwarded-for') || 
+                   request.headers.get('x-real-ip') || 
+                   'unknown',
+        user_agent: request.headers.get('user-agent') || 'unknown'
+      })
+      .select()
+      .single();
+
+    if (dbError) {
+      console.error("Database error:", dbError);
+      // Continue with email sending even if DB fails
     }
 
     // Send email using Resend
@@ -143,7 +165,12 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { message: "Email sent successfully", id: data?.id },
+      { 
+        message: "Message sent successfully", 
+        email_id: data?.id,
+        submission_id: submission?.id,
+        stored_in_database: !dbError
+      },
       { status: 200 }
     );
   } catch (error) {
