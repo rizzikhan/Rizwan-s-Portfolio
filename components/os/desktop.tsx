@@ -213,7 +213,7 @@ export function Desktop() {
     // Comprehensive search mapping
     const searchMap = [
       { id: "about" as WindowId, label: "About Me", icon: "user", keywords: ["bio", "profile", "skills", "tech", "python", "django", "ai", "rlhf"] },
-      { id: "projects" as WindowId, label: "Projects", icon: "folder", keywords: ["work", "portfolio", "apps", "code", "nutrimode", "intelliflow", "nexacommerce"] },
+      { id: "projects" as WindowId, label: "Projects", icon: "folder", keywords: ["work", "portfolio", "apps", "code", "nutrimeal", "intelliflow", "nexacommerce"] },
       { id: "experience" as WindowId, label: "Experience", icon: "briefcase", keywords: ["jobs", "history", "career", "crymzee", "hubble42", "piecyfer"] },
       { id: "contact" as WindowId, label: "Contact", icon: "mail", keywords: ["email", "touch", "hire", "talk", "social", "phone"] },
     ];

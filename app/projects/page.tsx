@@ -4,10 +4,10 @@ import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: `Explore projects by ${siteConfig.name}, including Nutrimode, an AI-powered HRM platform, AI Coupon Finder, IntelliFlow, and NexaCommerce, built with Python, Django, PostgreSQL, AWS, and AI/LLM tooling.`,
+  description: `Explore projects by ${siteConfig.name}, including Nutrimeal, an AI-powered HRM platform, AI Coupon Finder, IntelliFlow, and NexaCommerce, built with Python, Django, PostgreSQL, AWS, and AI/LLM tooling.`,
   keywords: [
     `${siteConfig.name} Projects`,
-    "Nutrimode",
+    "Nutrimeal",
     "IntelliFlow",
     "NexaCommerce",
     "Backend Developer Projects",

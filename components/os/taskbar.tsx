@@ -5,23 +5,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import portfolioData from "@/data/portfolio.json";
 import { type WindowId } from "./desktop";
 
-interface NewsItem {
-  title: string;
-  url: string;
-  author: string;
-}
 
-interface HackerNewsHit {
-  title: string | null;
-  url: string | null;
-  author: string;
-  objectID: string;
-}
-
-interface WeatherData {
-  temp: number;
-  condition: string;
-}
 
 interface TaskbarProps {
   openWindows: WindowId[];
@@ -52,33 +36,14 @@ export const Taskbar = memo(function Taskbar({
   const [date, setDate] = useState<string>("");
   const [showSystemPanel, setShowSystemPanel] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
-  const [showWidgets, setShowWidgets] = useState(false);
   const [activeSubMenu, setActiveSubMenu] = useState<"wifi" | "bluetooth" | null>(null);
   const [volume, setVolume] = useState(75);
-  const [news, setNews] = useState<NewsItem[]>([]);
-  const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [isLoading, setIsLoading] = useState({ news: true, weather: true });
   const [viewDate, setViewDate] = useState(new Date());
   
-  const widgetsRef = useRef<HTMLDivElement>(null);
-  const widgetsButtonRef = useRef<HTMLButtonElement>(null);
+  const systemPanelRef = useRef<HTMLDivElement>(null);
+  const systemPanelButtonRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        showWidgets &&
-        widgetsRef.current && 
-        !widgetsRef.current.contains(event.target as Node) &&
-        widgetsButtonRef.current &&
-        !widgetsButtonRef.current.contains(event.target as Node)
-      ) {
-        setShowWidgets(false);
-      }
-    };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [showWidgets]);
 
   useEffect(() => {
     if (showCalendar) {
@@ -86,56 +51,7 @@ export const Taskbar = memo(function Taskbar({
     }
   }, [showCalendar]);
 
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=31.5204&longitude=74.3587&current_weather=true");
-        if (!res.ok) {
-          throw new Error(`Weather request failed with ${res.status}`);
-        }
-        const data = await res.json();
-        setWeather({ 
-          temp: Math.round(data.current_weather.temperature), 
-          condition: data.current_weather.weathercode <= 3 ? "Clear" : "Cloudy" 
-        });
-      } catch {
-        setWeather({ temp: 28, condition: "Unavailable" });
-      } finally {
-        setIsLoading(prev => ({ ...prev, weather: false }));
-      }
-    };
 
-    const fetchNews = async () => {
-      try {
-        const res = await fetch("https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=5");
-        if (!res.ok) {
-          throw new Error(`News request failed with ${res.status}`);
-        }
-        const data = await res.json();
-        const hits = Array.isArray(data.hits) ? data.hits as HackerNewsHit[] : [];
-        setNews(hits
-          .filter((hit) => Boolean(hit.title))
-          .map((hit) => ({
-          title: hit.title as string,
-          url: hit.url || `https://news.ycombinator.com/item?id=${hit.objectID}`,
-          author: hit.author
-        })));
-      } catch {
-        setNews([
-          {
-            title: "Latest developer headlines are temporarily unavailable.",
-            url: "https://news.ycombinator.com/",
-            author: "System",
-          },
-        ]);
-      } finally {
-        setIsLoading(prev => ({ ...prev, news: false }));
-      }
-    };
-
-    fetchWeather();
-    fetchNews();
-  }, []);
 
   const getDaysInMonth = (date: Date) => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
@@ -189,21 +105,8 @@ export const Taskbar = memo(function Taskbar({
 
       {/* Taskbar Content */}
       <div className="relative h-full px-2 flex items-center">
-        {/* Left Section - Widgets */}
-        <div className="flex-1 flex items-center justify-start">
-          <div className="flex items-center gap-1">
-            <button
-              ref={widgetsButtonRef}
-              onClick={() => { setShowWidgets(!showWidgets); }}
-              className={`w-10 h-10 rounded-md flex items-center justify-center transition-all duration-150 group ${showWidgets ? 'bg-foreground/15' : 'hover:bg-foreground/10 hover-scale-108 active-scale-92'}`}
-              title="Widgets"
-            >
-              <svg className="w-5 h-5 text-os-text-primary opacity-70 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-              </svg>
-            </button>
-          </div>
-        </div>
+        {/* Left Section - Empty */}
+        <div className="flex-1" />
 
         {/* Center Section - Taskbar Icons */}
         <div className="flex-none flex items-center gap-1 px-2">
@@ -349,129 +252,6 @@ export const Taskbar = memo(function Taskbar({
       </div>
 
       <AnimatePresence>
-        {showWidgets && (
-          <motion.div
-            ref={widgetsRef}
-            initial={{ opacity: 0, x: -20, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: -20, scale: 0.95 }}
-            className="fixed bottom-14 left-2 right-2 md:left-2 md:right-auto md:w-[420px] max-h-[calc(100vh-80px)] h-[500px] md:h-[650px] bg-os-window border border-black/10 dark:border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col transition-colors duration-300"
-          >
-            {/* Widget Header */}
-            <div className="p-3 md:p-4 flex items-center justify-between gap-2 md:gap-4">
-              <div className="flex-1 relative group">
-                <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 md:w-4 md:h-4 text-os-text-secondary opacity-50 group-focus-within:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                <input
-                  type="text"
-                  placeholder="Search web or news"
-                  className="w-full bg-foreground/5 border-none rounded-lg py-2 pl-8 md:pl-9 pr-3 md:pr-4 text-[10px] md:text-xs text-os-text-primary focus:ring-1 focus:ring-accent outline-none transition-all"
-                />
-              </div>
-              <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-[9px] md:text-[10px] font-bold text-white shadow-lg uppercase">
-                {portfolioData.personalInfo.name.split(' ').map(n => n[0]).join('')}
-              </div>
-            </div>
-
-            <div className="flex-1 overflow-y-auto px-4 pb-4 space-y-5 custom-scrollbar">
-              {/* Weather Premium Widget */}
-              <div className="relative group overflow-hidden rounded-2xl bg-os-popover-bg border border-black/10 dark:border-white/10 p-5 transition-all shadow-sm">
-                <div className="relative z-10 flex justify-between items-center">
-                  <div className="space-y-1">
-                    <p className="text-xs font-semibold text-os-text-secondary uppercase tracking-wider">Current Forecast</p>
-                    <div className="flex items-baseline gap-2">
-                      <h3 className="text-4xl font-bold text-os-text-primary tracking-tight">
-                        {isLoading.weather ? "..." : `${weather?.temp}°`}
-                      </h3>
-                      <span className="text-lg text-os-text-secondary font-medium">Lahore</span>
-                    </div>
-                    <p className="text-sm text-[#38bdf8] font-medium flex items-center gap-2">
-                       <span className="w-2 h-2 rounded-full bg-[#38bdf8] animate-pulse" />
-                       {weather?.condition || "Loading..."}
-                    </p>
-                  </div>
-                  <div className="bg-white/5 p-3 rounded-full backdrop-blur-md border border-white/10 shadow-xl group-hover:scale-110 transition-transform">
-                    <svg className="w-12 h-12 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1a1 1 0 112 0v1a1 1 0 11-2 0zM13.536 14.243a1 1 0 011.414 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707zM16.243 13.536a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707z" /></svg>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                {/* GitHub Enhanced Card */}
-                <div className="group bg-os-popover-bg rounded-2xl p-4 border border-black/10 dark:border-white/10 transition-all shadow-sm">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-2 bg-os-text-primary/5 rounded-lg group-hover:bg-accent/10 transition-colors">
-                      <svg className="w-4 h-4 text-os-text-primary group-hover:text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z" /></svg>
-                    </div>
-                    <span className="text-[10px] font-bold text-accent">+12%</span>
-                  </div>
-                  <div className="text-xl font-bold text-os-text-primary">420+</div>
-                  <p className="text-[10px] font-medium text-os-text-secondary uppercase tracking-tight">Yearly Commits</p>
-                </div>
-
-                {/* Tracking Enhanced Card */}
-                <div className="group bg-os-popover-bg rounded-2xl p-4 border border-black/10 dark:border-white/10 transition-all shadow-sm">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-2 bg-emerald-500/5 rounded-lg group-hover:bg-emerald-500/10 transition-colors">
-                      <svg className="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-                    </div>
-                  </div>
-                  <div className="text-xl font-bold text-os-text-primary">+$1.2k</div>
-                  <p className="text-[10px] font-medium text-os-text-secondary uppercase tracking-tight">Portfolio Value</p>
-                </div>
-              </div>
-
-              {/* News Section Premium */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between px-1">
-                  <h4 className="text-xs font-bold text-os-text-primary uppercase tracking-[0.2em] opacity-60">Trending Tech</h4>
-                  <div className="flex items-center gap-1.5 py-1 px-2.5 bg-os-popover-bg rounded-full border border-black/10 dark:border-white/10">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full animate-ping" />
-                    <span className="text-[10px] font-bold text-accent uppercase tracking-wider">Live Feed</span>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  {isLoading.news ? (
-                    Array.from({ length: 4 }).map((_, i) => (
-                      <div key={i} className="flex gap-4 p-4 bg-foreground/[0.02] rounded-2xl animate-pulse">
-                        <div className="w-16 h-16 rounded-xl bg-foreground/10 shrink-0" />
-                        <div className="flex-1 space-y-3 py-1">
-                          <div className="h-3 bg-foreground/10 rounded-full w-full" />
-                          <div className="h-3 bg-foreground/10 rounded-full w-2/3" />
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    news.map((item, i) => (
-                      <a 
-                        key={i} 
-                        href={item.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="flex gap-4 p-4 bg-os-popover-bg rounded-2xl border border-black/10 dark:border-white/10 transition-all group shadow-sm hover:scale-[1.01]"
-                      >
-                        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-105 transition-transform">
-                          <span className="text-white text-2xl font-black">Y</span>
-                        </div>
-                        <div className="flex-1 min-w-0 space-y-1.5">
-                          <p className="text-[13px] text-os-text-primary font-semibold leading-snug line-clamp-2 group-hover:text-accent transition-colors">
-                            {item.title}
-                          </p>
-                          <div className="flex items-center gap-2 text-[10px] text-os-text-secondary font-medium">
-                            <span className="truncate">@{item.author}</span>
-                            <span>•</span>
-                            <span className="text-orange-500 font-bold">Hacker News</span>
-                          </div>
-                        </div>
-                      </a>
-                    ))
-                  )}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
         {showSystemPanel && (
           <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.95 }}

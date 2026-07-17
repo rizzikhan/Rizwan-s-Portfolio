@@ -104,7 +104,7 @@ export function NowContent() {
               <ul className="space-y-2 text-foreground/80">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
-                  <span>Building Nutrimode, an AI-powered nutrition & fitness platform with OpenAI and DALL·E</span>
+                  <span>Building Nutrimeal, an AI-powered nutrition & fitness platform with OpenAI and DALL·E</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">▹</span>
