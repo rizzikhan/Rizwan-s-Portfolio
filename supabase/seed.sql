@@ -206,7 +206,7 @@ ARRAY['Python', 'Django', 'JavaScript', 'LangChain', 'Tailwind CSS', 'REST APIs'
 
 -- Insert featured projects from experience
 INSERT INTO projects (name, description, detailed_description, technologies, achievements, live_url, github_url, type, status, featured, sort_order, started_date, completed_date) VALUES
-('Nutrimode – AI-Powered Nutrition & Fitness Platform', 
+('Nutrimeal – AI-Powered Nutrition & Fitness Platform', 
 'Cross-platform AI-driven nutrition and fitness app (Web, Android, iOS) helping users manage health goals through personalized meal and exercise plans.',
 'Comprehensive fitness and nutrition platform that leverages AI to provide personalized meal planning and exercise routines. Features interactive dashboards, AI-generated meal visualizations using DALL·E, virtual appointments, subscription plans, and real-time notifications.',
 ARRAY['Python', 'Django', 'OpenAI', 'DALL·E', 'Celery', 'Redis', 'Docker', 'AWS', 'Stripe', 'Firebase'],
@@ -216,7 +216,7 @@ ARRAY[
   'Added virtual appointments via Google Meet and subscription plans with Stripe',
   'Implemented Celery with Redis for background tasks and deployed using Docker and AWS'
 ],
-'https://nutrimode.dev.crymzee.com/',
+'https://nutrimeal.dev.crymzee.com/',
 '',
 'company',
 'completed',

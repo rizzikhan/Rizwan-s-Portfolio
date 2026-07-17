@@ -346,7 +346,7 @@ export function Nav() {
                         const query = searchQuery.toLowerCase();
                         const results = [
                           { id: "about", label: "About Me", icon: "👤", keywords: ["skills", "bio", "education", "tech", "python", "django", "ai"] },
-                          { id: "projects", label: "Projects", icon: "🚀", keywords: ["work", "apps", "code", "portfolio", "nutrimode", "intelliflow", "nexacommerce"] },
+                          { id: "projects", label: "Projects", icon: "🚀", keywords: ["work", "apps", "code", "portfolio", "nutrimeal", "intelliflow", "nexacommerce"] },
                           { id: "experience", label: "Experience", icon: "💼", keywords: ["jobs", "history", "crymzee", "hubble42", "piecyfer", "career"] },
                           { id: "contact", label: "Contact", icon: "✉️", keywords: ["email", "hire", "talk", "social", "phone", "location"] },
                         ];
